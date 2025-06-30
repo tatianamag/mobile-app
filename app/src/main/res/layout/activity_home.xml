@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <!-- Logo y bienvenida -->
+
+    <!-- Botones de acción --><![CDATA[
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+    ]]><!-- Navegación inferior -->
+    <GridLayout
+        android:id="@+id/homeButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:padding="8dp"
+        android:rowCount="2"
+        android:rowOrderPreserved="false"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="161dp">
+
+        <!-- Botón: Solicitar Turno -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTurno"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_stethoscope" />
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:text="Solicitar turno"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:gravity="center"
+                    android:paddingTop="4dp"
+                    android:text="Agendá un turno médico o estudio"
+                    android:textColor="@color/gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botón: Buscar Guardia -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardGuardia"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_guardia" />
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:text="Buscar guardia"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:gravity="center"
+                    android:paddingTop="4dp"
+                    android:text="Consultá las diferentes guardias"
+                    android:textColor="@color/gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botón: Ver Cartilla -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCartilla"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_search" />
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:text="Ver Cartilla"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:gravity="center"
+                    android:paddingTop="4dp"
+                    android:text="Explorá centros y profesionales"
+                    android:textColor="@color/gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botón: Emergencias -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardEmergencia"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_emergency_call" />
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:text="Emergencias"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:gravity="center"
+                    android:paddingTop="4dp"
+                    android:text="Llamá a nuestra línea de urgencias"
+                    android:textColor="@color/gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </GridLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottom" />
+</androidx.constraintlayout.widget.ConstraintLayout>
