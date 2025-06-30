@@ -22,21 +22,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.192" />
 
-
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
+        android:id="@+id/button2"
         android:layout_width="170dp"
         android:layout_height="62dp"
         android:text="@string/boton_ingresar"
         app:backgroundTint="@null"
         app:cornerRadius="16dp"
         app:iconPadding="3sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.8"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.795" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="170dp"
+        android:layout_height="62dp"
+        android:text="@string/boton_registrarme"
+        app:backgroundTint="@color/colorLlamativo"
+        app:cornerRadius="16dp"
+        app:iconPadding="3sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.795" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
