@@ -1,37 +1,55 @@
-package com.novacenter.app
+LoginActivity.kt: package com.novacenter.app.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.novacenter.app.databinding.ActivityLoginBinding
+import com.novacenter.app.ui.viewmodel.UsuarioViewModel
+import kotlinx.coroutines.flow.collect
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private val viewModel: UsuarioViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Botón de Ingresar
         binding.btnLogin.setOnClickListener {
-            val email = binding.emailField.text.toString().trim()
-            val password = binding.passwordField.text.toString().trim()
+            val username = binding.etUsername.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
 
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Por favor completá todos los campos", Toast.LENGTH_SHORT).show()
+            if (username.isEmpty() || password.isEmpty()) {
+                binding.tvError.text = "Completa ambos campos"
+                binding.tvError.visibility = android.view.View.VISIBLE
             } else {
-                // Aquí iría la llamada al ViewModel o Retrofit para iniciar sesión
-                Toast.makeText(this, "Intentando iniciar sesión…", Toast.LENGTH_SHORT).show()
-                // Ejemplo: startActivity(Intent(this, HomeActivity::class.java))
+                binding.tvError.visibility = android.view.View.GONE
+                viewModel.login(username, password)
             }
         }
 
-        // Link de recuperación
-        binding.tvForgotPassword.setOnClickListener {
-            Toast.makeText(this, "Funcionalidad de recuperación pendiente", Toast.LENGTH_SHORT).show()
+        // Observar el resultado del login
+        lifecycleScope.launchWhenStarted {
+            viewModel.usuarioLogueado.collect { response ->
+                if (response != null) {
+                    // Guardar el token en SharedPreferences
+                    val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+                    prefs.edit().putString("TOKEN", response.token).apply()
+
+                    Toast.makeText(this@LoginActivity, "¡Login exitoso!", Toast.LENGTH_SHORT).show()
+
+                    // Ir a la Home (cambiá por tu propia pantalla)
+                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
         }
     }
 }
