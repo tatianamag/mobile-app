@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Nova Center</string>
+    <string name="boton_ingresar">Ingresar</string>
+    <string name="boton_registrarme">Registrarme</string>
+</resources>
