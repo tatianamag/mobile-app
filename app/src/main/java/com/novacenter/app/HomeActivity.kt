@@ -1,4 +1,4 @@
-Archivo: HomeActivity.kt:        package com.novacenter.app.ui
+package com.novacenter.app.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels

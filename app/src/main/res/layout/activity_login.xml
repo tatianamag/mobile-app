@@ -13,12 +13,11 @@
         android:id="@+id/logoImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="64dp"
         android:src="@drawable/ic_heart_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="64dp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- ¡Bienvenido! -->
@@ -27,14 +26,13 @@
         android:id="@+id/welcomeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="24dp"
         android:text="¡Bienvenido!"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="24dp"
         app:layout_constraintTop_toBottomOf="@id/logoImage" />
 
     <!-- Subtítulo -->
@@ -42,33 +40,31 @@
         android:id="@+id/welcomeSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:text="Inicia sesión ahora"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="8dp"
         app:layout_constraintTop_toBottomOf="@id/welcomeTitle" />
 
     <TextView
         android:id="@+id/tvForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Olvidé mi contraseña"
         android:textColor="@color/blue"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/btnLogin" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Ingresar"
         android:textColor="@android:color/white"
         app:backgroundTint="@color/green"
@@ -76,7 +72,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="24dp"
         app:layout_constraintTop_toBottomOf="@id/passwordField" />
 
     <!-- Campo contraseña -->
@@ -84,7 +79,8 @@
         android:id="@+id/passwordField"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:minHeight="48dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="@color/gray"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -92,7 +88,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="12dp"
         app:layout_constraintTop_toBottomOf="@id/usernameField" />
 
     <!-- Campo usuario -->
@@ -100,7 +95,8 @@
         android:id="@+id/usernameField"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:minHeight="48dp"
+        android:layout_marginTop="24dp"
         android:backgroundTint="@color/gray"
         android:hint="Usuario"
         android:inputType="textPersonName"
@@ -108,13 +104,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="24dp"
         app:layout_constraintTop_toBottomOf="@id/welcomeSubtitle" />
-
-
-    <!-- Botón ingresar -->
-
-    <!-- Olvidé mi contraseña -->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
