@@ -1,4 +1,4 @@
-LoginActivity.kt: package com.novacenter.app.ui
+package com.novacenter.app.ui
 
 import android.content.Context
 import android.content.Intent
