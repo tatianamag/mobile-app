@@ -1,6 +1,8 @@
 package com.novacenter.app
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +26,7 @@ class SolicitudTurnoActivity : AppCompatActivity() {
     }
 
     private fun configurarAutoCompletes() {
-        val especialidades = listOf("Cardiología", "Dermatología", "Pediatría")
+        val especialidades = listOf("Clínico", "Cardiología", "Oftalmología", "Pediatría")
         val medicos = listOf("Dra. Gómez", "Dr. Ramírez", "Dra. López")
         val horarios = listOf("09:00 hs", "10:30 hs", "13:00 hs", "15:15 hs")
 
