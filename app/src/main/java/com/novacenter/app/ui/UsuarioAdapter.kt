@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.novacenter.app.data.model.Usuario
-import com.novacenter.app.databinding.ItemUsuarioBinding
+import com.novacenter.app.databinding.UsuarioBinding
 
 class UsuarioAdapter(private val usuarios: List<Usuario>) :
     RecyclerView.Adapter<UsuarioAdapter.UsuarioViewHolder>() {
 
-    inner class UsuarioViewHolder(private val binding: ItemUsuarioBinding) :
+    inner class UsuarioViewHolder(private val binding: UsuarioBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(usuario: Usuario) {
@@ -19,7 +19,7 @@ class UsuarioAdapter(private val usuarios: List<Usuario>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuarioViewHolder {
-        val binding = ItemUsuarioBinding.inflate(
+        val binding = UsuarioBinding.inflate(
             LayoutInflater.from(parent.context), parent, false)
         return UsuarioViewHolder(binding)
     }
