@@ -8,8 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.novacenter.app.databinding.ActivityLoginBinding
-import com.novacenter.app.ui.viewmodel.UsuarioViewModel
-import kotlinx.coroutines.flow.collect
+import com.novacenter.app.ui.usuario.viewmodel.UsuarioViewModel
 
 class LoginActivity : AppCompatActivity() {
 
