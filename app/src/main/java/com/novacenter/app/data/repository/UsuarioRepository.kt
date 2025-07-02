@@ -1,6 +1,5 @@
 package com.novacenter.app.data.repository
 
-import com.novacenter.app.data.api.RetrofitClient
 import com.novacenter.app.data.model.LoginRequest
 import com.novacenter.app.data.model.LoginResponse
 import com.novacenter.app.data.model.Usuario
