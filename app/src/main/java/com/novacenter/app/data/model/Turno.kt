@@ -1,8 +1,11 @@
-package com.novacenter.app.model
+package com.novacenter.app.data.model
 
 data class Turno(
-    val fecha: String,          // ej: "Lunes 5/08"
-    val hora: String,           // ej: "10:30hs"
-    val medico: String,         // ej: "Dr. Rivas"
-    val especialidad: String    // ej: "Traumatología"
+    val id: Int,
+    val id_paciente: Int,
+    val id_motivo: Int,
+    val id_medico: Int,
+    val fecha_y_hora: String,
+    val estado: String,
+    val detalle_motivo: String?
 )

@@ -1,8 +1,9 @@
-package com.novacenter.app
+package com.novacenter.app.ui.turnos
 
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.content.Intent
 import com.google.android.material.snackbar.Snackbar
 import androidx.core.content.ContextCompat
 import android.widget.ArrayAdapter

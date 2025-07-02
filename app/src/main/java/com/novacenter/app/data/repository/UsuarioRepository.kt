@@ -1,36 +1,17 @@
 package com.novacenter.app.data.repository
 
-import com.novacenter.app.data.model.LoginRequest
-import com.novacenter.app.data.model.LoginResponse
+import android.content.Context
 import com.novacenter.app.data.model.Usuario
 import com.novacenter.app.data.network.RetrofitInstance
 
-class UsuarioRepository {
+class UsuarioRepository(context: Context) {
 
-    private val api = RetrofitInstance.usuarioService
+    private val api = RetrofitInstance.getRetrofit(context).create(com.novacenter.app.data.network.UsuarioService::class.java)
 
-    suspend fun login(username: String, password: String): LoginResponse {
-        val request = LoginRequest(username, password)
-        return api.login(request)
-    }
-
-    suspend fun obtenerUsuarios(): List<Usuario> {
-        return api.getUsuarios()
-    }
-
-    suspend fun obtenerUsuario(id: Int): Usuario {
-        return api.getUsuario(id)
-    }
-
-    suspend fun agregarUsuario(usuario: Usuario): Usuario {
-        return api.addUsuario(usuario)
-    }
-
-    suspend fun actualizarUsuario(id: Int, usuario: Usuario): Usuario {
-        return api.updateUsuario(id, usuario)
-    }
-
-    suspend fun eliminarUsuario(id: Int) {
-        api.deleteUsuario(id)
-    }
+    suspend fun obtenerUsuarios(): List<Usuario> = api.getUsuarios()
+    suspend fun obtenerUsuario(id: Int): Usuario = api.getUsuario(id)
+    suspend fun agregarUsuario(usuario: Usuario): Usuario = api.addUsuario(usuario)
+    suspend fun actualizarUsuario(id: Int, usuario: Usuario): Usuario = api.updateUsuario(id, usuario)
+    suspend fun eliminarUsuario(id: Int) = api.deleteUsuario(id)
 }
+

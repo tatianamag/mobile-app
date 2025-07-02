@@ -1,4 +1,4 @@
-package com.novacenter.app.ui
+package com.novacenter.app
 
 import android.os.Bundle
 import androidx.activity.viewModels

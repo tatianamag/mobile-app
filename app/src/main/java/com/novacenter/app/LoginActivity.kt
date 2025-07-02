@@ -1,4 +1,4 @@
-package com.novacenter.app.ui
+package com.novacenter.app
 
 import android.content.Context
 import android.content.Intent
