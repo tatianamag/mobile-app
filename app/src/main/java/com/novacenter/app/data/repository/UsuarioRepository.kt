@@ -3,15 +3,11 @@ package com.novacenter.app.data.repository
 import com.novacenter.app.data.model.LoginRequest
 import com.novacenter.app.data.model.LoginResponse
 import com.novacenter.app.data.model.Usuario
+import com.novacenter.app.data.network.RetrofitInstance
 
 class UsuarioRepository {
 
-    private val api = RetrofitClient.apiService
-
-    suspend fun login(username: String, password: String): LoginResponse {
-        val request = LoginRequest(username, password)
-        return api.login(request)
-    }
+    private val api = RetrofitInstance.usuarioService
 
     suspend fun obtenerUsuarios(): List<Usuario> {
         return api.getUsuarios()
