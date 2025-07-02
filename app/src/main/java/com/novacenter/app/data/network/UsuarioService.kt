@@ -1,15 +1,9 @@
-package com.novacenter.app.data.api
+package com.novacenter.app.data.network
 
-import com.novacenter.app.data.model.LoginRequest
-import com.novacenter.app.data.model.LoginResponse
 import com.novacenter.app.data.model.Usuario
 import retrofit2.http.*
 
-interface ApiService {
-
-    @POST("login")
-    suspend fun login(@Body credentials: LoginRequest): LoginResponse
-
+interface UsuarioService {
     @GET("usuarios")
     suspend fun getUsuarios(): List<Usuario>
 
