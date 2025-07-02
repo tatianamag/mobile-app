@@ -7,17 +7,17 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.novacenter.app.databinding.ActivitySolicitudTurnoBinding
+import com.novacenter.app.databinding.SolicitudTurnoActivityBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
 class SolicitudTurnoActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySolicitudTurnoBinding
+    private lateinit var binding: SolicitudTurnoActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySolicitudTurnoBinding.inflate(layoutInflater)
+        binding = SolicitudTurnoActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         configurarAutoCompletes()
