@@ -65,5 +65,4 @@ dependencies {
 
     // RecyclerView para listas
     implementation("androidx.recyclerview:recyclerview:1.3.0")
-    implementation(libs.material)
 }
