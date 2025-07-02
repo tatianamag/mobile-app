@@ -9,11 +9,6 @@ class UsuarioRepository {
 
     private val api = RetrofitInstance.usuarioService
 
-    suspend fun login(username: String, password: String): LoginResponse {
-        val request = LoginRequest(username, password)
-        return api.login(request)
-    }
-
     suspend fun obtenerUsuarios(): List<Usuario> {
         return api.getUsuarios()
     }

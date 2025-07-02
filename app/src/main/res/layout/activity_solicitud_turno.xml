@@ -20,19 +20,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="24dp"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Especialidad -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/especialidadInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Especialidad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoEspecialidad"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Médico -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/medicoInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:hint="Médico"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/especialidadInputLayout">
 
         <AutoCompleteTextView
@@ -43,36 +60,15 @@
             android:paddingBottom="12dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/horarioInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:hint="Horario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.027"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/fechaInputLayout">
-
-        <AutoCompleteTextView
-            android:id="@+id/autoHorario"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
+    <!-- Fecha -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fechaInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:hint="Fecha"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/medicoInputLayout">
 
         <EditText
@@ -85,48 +81,37 @@
             android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnConfirmarTurno"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Confirmar Turno"
-        android:textColor="@android:color/white"
-        app:backgroundTint="@color/green"
-        app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="32dp"
-        app:layout_constraintTop_toBottomOf="@id/horarioInputLayout" />
-
+    <!-- Horario -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/especialidadInputLayout"
+        android:id="@+id/horarioInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="Especialidad"
+        android:layout_marginTop="16dp"
+        android:hint="Horario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="24dp"
-        app:layout_constraintTop_toBottomOf="@id/tvTitulo">
+        app:layout_constraintTop_toBottomOf="@id/fechaInputLayout">
 
-        <!-- Especialidad -->
         <AutoCompleteTextView
-            android:id="@+id/autoEspecialidad"
+            android:id="@+id/autoHorario"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:paddingTop="12dp"
             android:paddingBottom="12dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Médico -->
-
-    <!-- Fecha -->
-
-    <!-- Horario -->
-
     <!-- Botón confirmar -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConfirmarTurno"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Confirmar Turno"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@color/green"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horarioInputLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
