@@ -1,4 +1,4 @@
-package com.novacenter.app.ui.viewmodel
+package com.novacenter.app.ui.usuario.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,23 +1,26 @@
-package com.novacenter.app
+package com.novacenter.app.ui.turnos
 
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.google.android.material.snackbar.Snackbar
+import androidx.core.content.ContextCompat
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.novacenter.app.databinding.SolicitudTurnoActivityBinding
+import com.novacenter.app.R
+import com.novacenter.app.databinding.ActivitySolicitudTurnoBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
 class SolicitudTurnoActivity : AppCompatActivity() {
 
-    private lateinit var binding: SolicitudTurnoActivityBinding
+    private lateinit var binding: ActivitySolicitudTurnoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = SolicitudTurnoActivityBinding.inflate(layoutInflater)
+        binding = ActivitySolicitudTurnoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         configurarAutoCompletes()
@@ -62,9 +65,15 @@ class SolicitudTurnoActivity : AppCompatActivity() {
             if (esp.isEmpty() || med.isEmpty() || fecha.isEmpty() || hora.isEmpty()) {
                 Toast.makeText(this, "Completá todos los campos", Toast.LENGTH_SHORT).show()
             } else {
-                // Acá podrías llamar al ViewModel o Retrofit para enviar el turno
-                Toast.makeText(this, "Turno solicitado con éxito ✅", Toast.LENGTH_LONG).show()
-                // finish() o redirigir a otra vista
+                Snackbar.make(binding.root, "Turno solicitado exitosamente.\nRedirigiendo a Mis turnos…", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(ContextCompat.getColor(this, R.color.green)) // opcional para destacar
+                    .show()
+
+                Handler(Looper.getMainLooper()).postDelayed({
+                    startActivity(Intent(this, TurnosActivity::class.java))
+                    finish() // opcional para que no vuelva al formulario al presionar atrás
+                }, 1500)
+
             }
         }
     }
