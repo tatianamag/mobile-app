@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.novacenter.app.databinding.ActivityHomeBinding
-import com.novacenter.app.ui.viewmodel.UsuarioViewModel
-import kotlinx.coroutines.flow.collect
+import com.novacenter.app.ui.usuario.adapter.UsuarioAdapter
+import com.novacenter.app.ui.usuario.viewmodel.UsuarioViewModel
 
 class HomeActivity : AppCompatActivity() {
 
