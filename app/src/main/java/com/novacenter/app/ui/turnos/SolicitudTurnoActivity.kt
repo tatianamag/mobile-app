@@ -1,4 +1,4 @@
-package com.novacenter.app.ui.turnos
+package com.novacenter.app
 
 import android.os.Bundle
 import android.os.Handler
@@ -71,7 +71,7 @@ class SolicitudTurnoActivity : AppCompatActivity() {
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     startActivity(Intent(this, TurnosActivity::class.java))
-                    finish() // opcional para que no vuelva al formulario al presionar atrás
+                    finish()
                 }, 1500)
 
             }

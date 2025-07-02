@@ -1,4 +1,4 @@
-LoginActivity.kt: package com.novacenter.app.ui
+package com.novacenter.app.ui
 
 import android.content.Context
 import android.content.Intent
@@ -21,8 +21,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
-            val username = binding.etUsername.text.toString().trim()
-            val password = binding.etPassword.text.toString().trim()
+            val username = binding.usernameField.text.toString().trim()
+            val password = binding.passwordField.text.toString().trim()
 
             if (username.isEmpty() || password.isEmpty()) {
                 binding.tvError.text = "Completa ambos campos"
