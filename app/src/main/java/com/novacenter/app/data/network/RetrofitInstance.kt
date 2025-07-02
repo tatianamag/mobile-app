@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
-    private const val BASE_URL = "https://tu-servidor/api/" // reemplazalo con tu endpoint real
+    private const val BASE_URL = "http://localhost:5000" // reemplazalo con tu endpoint real
 
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
