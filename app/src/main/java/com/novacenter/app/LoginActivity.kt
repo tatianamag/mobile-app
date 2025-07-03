@@ -33,6 +33,12 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        binding.tvForgotPassword.setOnClickListener {
+            val intent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
+
         // Observar el resultado del login
         lifecycleScope.launchWhenStarted {
             viewModel.usuarioLogueado.collect { response ->
