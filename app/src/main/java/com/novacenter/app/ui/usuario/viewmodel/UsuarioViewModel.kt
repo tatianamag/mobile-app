@@ -13,21 +13,23 @@ import kotlinx.coroutines.launch
 
 class UsuarioViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val authRepo = AuthRepository()
-    private val usuarioRepo = UsuarioRepository(application)
+    private val authRepository = AuthRepository()
 
-    private val _usuarioLogueado = MutableStateFlow<LoginResponse?>(null)
-    val usuarioLogueado: StateFlow<LoginResponse?> = _usuarioLogueado
+    private val repository = UsuarioRepository()
 
     private val _usuarios = MutableStateFlow<List<Usuario>>(emptyList())
     val usuarios: StateFlow<List<Usuario>> = _usuarios
 
+    private val _usuarioLogueado = MutableStateFlow<LoginResponse?>(null)
+    val usuarioLogueado: StateFlow<LoginResponse?> = _usuarioLogueado
+
     fun login(username: String, password: String) {
         viewModelScope.launch {
             try {
-                val response = authRepo.login(username, password)
+                val response = authRepository.login(username, password)
                 _usuarioLogueado.value = response
             } catch (e: Exception) {
+                e.printStackTrace()
                 _usuarioLogueado.value = null
             }
         }
