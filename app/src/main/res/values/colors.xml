@@ -1,10 +1,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#EBEEF3</color>
+    <color name="darkGrayFont">#c6c3c8</color>
+    <color name="softGray">#f6f7f9</color>
+
+    <!-- botones importantes -->
     <color name="colorLlamativo">#37E939</color>
 
-    <!-- Colores faltantes -->
-    <color name="blue">#2196F3</color>
+    <!-- pasteles -->
+    <color name="blue">#92C8FA</color>
     <color name="green">#4CAF50</color>
-    <color name="gray">#9E9E9E</color>
+    <color name="azulNova">#004081</color>
+
 </resources>

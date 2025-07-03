@@ -1,5 +1,6 @@
 package com.novacenter.app
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,32 @@ class HomeActivity : AppCompatActivity() {
         lifecycleScope.launchWhenStarted {
             viewModel.usuarios.collect { lista ->
                 binding.recyclerUsuarios.adapter = UsuarioAdapter(lista)
+            }
+        }
+        // 👉 Listener del BottomNavigationView
+        binding.navBar.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    // Ya estás en Home, podés hacer scrollTop si querés
+                    true
+                }
+
+                R.id.nav_salud -> {
+                    startActivity(Intent(this, MiSaludActivity::class.java))
+                    true
+                }
+
+                R.id.nav_turnos -> {
+                    startActivity(Intent(this, MisTurnosActivity::class.java))
+                    true
+                }
+
+                R.id.nav_perfil -> {
+                    startActivity(Intent(this, PerfilActivity::class.java))
+                    true
+                }
+
+                else -> false
             }
         }
     }
