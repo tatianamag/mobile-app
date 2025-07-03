@@ -14,7 +14,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="64dp"
-        android:src="@drawable/ic_heart_logo"
+        android:src="@drawable/logo_chico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_marginTop="24dp"
         android:text="¡Bienvenido!"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,28 +51,56 @@
         android:id="@+id/usernameField"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         android:backgroundTint="@color/gray"
         android:hint="Usuario"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcomeSubtitle" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Ingresar"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@color/green"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvError" />
+
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Olvidé mi contraseña"
+        android:textColor="@color/blue"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
     <!-- Campo contraseña -->
     <EditText
         android:id="@+id/passwordField"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/gray"
         android:hint="Contraseña"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         android:padding="12dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,32 +121,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Botón Ingresar -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Ingresar"
-        android:textColor="@android:color/white"
-        app:backgroundTint="@color/green"
-        app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvError" />
 
     <!-- Enlace recuperar contraseña -->
-    <TextView
-        android:id="@+id/tvForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Olvidé mi contraseña"
-        android:textColor="@color/blue"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
