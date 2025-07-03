@@ -1,22 +1,23 @@
 package com.novacenter.app.data.network
 
 import com.novacenter.app.data.model.Usuario
+import retrofit2.Response
 import retrofit2.http.*
 
 interface UsuarioService {
 
-    @GET("usuarios")
-    suspend fun getUsuarios(): List<Usuario>
+    @GET("api/usuarios")
+    suspend fun getUsuarios(): Response<List<Usuario>>
 
-    @GET("usuarios/{id}")
-    suspend fun getUsuario(@Path("id") id: Int): Usuario
+    @GET("api/usuarios/{id}")
+    suspend fun getUsuario(@Path("id") id: Int): Response<Usuario>
 
-    @POST("usuarios")
-    suspend fun addUsuario(@Body usuario: Usuario): Usuario
+    @POST("api/usuarios")
+    suspend fun addUsuario(@Body usuario: Usuario): Response<Usuario>
 
-    @PUT("usuarios/{id}")
-    suspend fun updateUsuario(@Path("id") id: Int, @Body usuario: Usuario): Usuario
+    @PUT("api/usuarios/{id}")
+    suspend fun updateUsuario(@Path("id") id: Int, @Body usuario: Usuario): Response<Usuario>
 
-    @DELETE("usuarios/{id}")
-    suspend fun deleteUsuario(@Path("id") id: Int)
+    @DELETE("api/usuarios/{id}")
+    suspend fun deleteUsuario(@Path("id") id: Int): Response<Unit>
 }

@@ -1,3 +1,5 @@
+package com.novacenter.app.data.model
+
 data class Usuario(
     val id_persona: Int,
     val estado: String,

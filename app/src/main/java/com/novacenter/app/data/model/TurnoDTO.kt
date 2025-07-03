@@ -1,7 +1,6 @@
 package com.novacenter.app.data.model
 
-data class Turno(
-    val id: Int,
+data class TurnoDTO(
     val id_paciente: Int,
     val id_motivo: Int,
     val id_medico: Int,

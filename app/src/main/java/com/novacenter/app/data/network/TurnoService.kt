@@ -1,29 +1,30 @@
 package com.novacenter.app.data.network
 
 import com.novacenter.app.data.model.Turno
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Body
+import com.novacenter.app.data.model.TurnoDTO
+import retrofit2.Response
+import retrofit2.http.*
 
 interface TurnoService {
-    @GET("turnos")
+
+    @GET("api/turnos")
     suspend fun obtenerTurnos(
-        @retrofit2.http.Query("page") page: Int = 1,
-        @retrofit2.http.Query("pageSize") pageSize: Int = 10
-    ): List<Turno>
+        @Query("page") page: Int = 1,
+        @Query("pageSize") pageSize: Int = 10
+    ): Response<List<Turno>>
 
-    @GET("turnos/{id}")
-    suspend fun obtenerTurnoPorId(@retrofit2.http.Path("id") id: Int): Turno
+    @GET("api/turnos/{id}")
+    suspend fun obtenerTurnoPorId(@Path("id") id: Int): Response<Turno>
 
-    @POST("turnos")
-    suspend fun crearTurno(@Body turno: Turno): Turno
+    @POST("api/turnos")
+    suspend fun crearTurno(@Body turno: TurnoDTO): Response<Turno>
 
-    @retrofit2.http.PUT("turnos/{id}")
+    @PUT("api/turnos/{id}")
     suspend fun actualizarTurno(
-        @retrofit2.http.Path("id") id: Int,
-        @Body turno: Turno
-    ): retrofit2.Response<Unit>
+        @Path("id") id: Int,
+        @Body turno: TurnoDTO
+    ): Response<Unit>
 
-    @retrofit2.http.DELETE("turnos/{id}")
-    suspend fun eliminarTurno(@retrofit2.http.Path("id") id: Int): retrofit2.Response<Unit>
+    @DELETE("api/turnos/{id}")
+    suspend fun eliminarTurno(@Path("id") id: Int): Response<Unit>
 }

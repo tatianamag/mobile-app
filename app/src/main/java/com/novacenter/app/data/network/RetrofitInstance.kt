@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitInstance {
 
-    private const val BASE_URL = "http://192.168.1.40:5000/api/"
+    private const val BASE_URL = "http://192.168.1.40:5000/"  // 🔧 corregido (sin /api/)
 
     // Retrofit con token (para endpoints protegidos)
     fun getRetrofit(context: Context): Retrofit {
@@ -23,9 +23,9 @@ object RetrofitInstance {
         }
 
         val clientBuilder = OkHttpClient.Builder()
-            .addInterceptor(logging)
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
+            .addInterceptor(logging)
 
         token?.let {
             clientBuilder.addInterceptor(object : Interceptor {
@@ -39,7 +39,7 @@ object RetrofitInstance {
         }
 
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL)  // ✅ sin /api/
             .addConverterFactory(GsonConverterFactory.create())
             .client(clientBuilder.build())
             .build()
@@ -48,7 +48,7 @@ object RetrofitInstance {
     // Retrofit sin token (para login)
     val authService: AuthService by lazy {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL)  // ✅ también corregido
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(AuthService::class.java)

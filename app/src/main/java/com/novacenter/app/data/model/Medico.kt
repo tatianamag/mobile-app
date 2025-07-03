@@ -1,5 +1,4 @@
-
-package com.example.app.model
+package com.novacenter.app.data.model
 
 data class Medico(
     val id_medico: Int,
