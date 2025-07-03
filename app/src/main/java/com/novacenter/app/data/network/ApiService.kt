@@ -13,15 +13,8 @@ interface ApiService {
 
     @POST("/auth/login")
     @Headers("Content-Type: application/json")
-    fun login(@Body request: LoginRequest): Call<LoginResponse>
 
-    companion object {
-        val instance: ApiService by lazy {
-            Retrofit.Builder()
-                .baseUrl("http://192.168.1.40:5000")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(ApiService::class.java)
-        }
-    }
+    suspend fun login(@Body request: LoginRequest): LoginResponse
 }
+
+

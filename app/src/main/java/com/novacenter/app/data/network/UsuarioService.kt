@@ -4,6 +4,7 @@ import com.novacenter.app.data.model.Usuario
 import retrofit2.http.*
 
 interface UsuarioService {
+
     @GET("usuarios")
     suspend fun getUsuarios(): List<Usuario>
 

@@ -1,6 +1,6 @@
 package com.novacenter.app.data.model
 
 data class LoginRequest(
-    val dni: String,
+    val usuario: String,
     val contraseña: String
 )
