@@ -40,6 +40,11 @@ class HomeActivity : AppCompatActivity() {
                 binding.recyclerUsuarios.adapter = UsuarioAdapter(lista)
             }
         }
+        // 👉 Acá va el nuevo bloque para el botón "Contacto"
+        binding.contactoCard.setOnClickListener {
+            val intent = Intent(this, com.novacenter.app.ui.contacto.ContactoActivity::class.java)
+            startActivity(intent)
+        }
         // 👉 Listener del BottomNavigationView
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
