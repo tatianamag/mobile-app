@@ -23,6 +23,9 @@ class UsuarioViewModel(application: Application) : AndroidViewModel(application)
     private val _usuarioLogueado = MutableStateFlow<LoginResponse?>(null)
     val usuarioLogueado: StateFlow<LoginResponse?> = _usuarioLogueado
 
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error
+
     fun login(username: String, password: String) {
         viewModelScope.launch {
             try {
@@ -31,6 +34,7 @@ class UsuarioViewModel(application: Application) : AndroidViewModel(application)
             } catch (e: Exception) {
                 e.printStackTrace()
                 _usuarioLogueado.value = null
+                _error.value = "No se pudo iniciar sesión. Verificá tus datos o intentá más tarde."
             }
         }
     }
@@ -43,7 +47,12 @@ class UsuarioViewModel(application: Application) : AndroidViewModel(application)
             } catch (e: Exception) {
                 e.printStackTrace()
                 _usuarios.value = emptyList()
+                _error.value = "Error al cargar la lista de usuarios."
             }
         }
     }
+    fun limpiarError() {
+        _error.value = null
+    }
 }
+
