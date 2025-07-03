@@ -10,9 +10,7 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 
-class LoginViewModel : ViewModel() {
-
-    private val authRepository = AuthRepository()
+class LoginViewModel(val authRepository: AuthRepository) : ViewModel() {
 
     private val _usuarioLogueado = MutableStateFlow<LoginResponse?>(null)
     val usuarioLogueado: StateFlow<LoginResponse?> = _usuarioLogueado
