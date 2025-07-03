@@ -10,7 +10,10 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
+<<<<<<<<< Temporary merge branch 1:app/src/main/java/com/novacenter/app/ui/turnos/SolicitudTurnoActivity.kt
 import com.novacenter.app.R
+=========
+>>>>>>>>> Temporary merge branch 2:app/src/main/java/com/novacenter/app/SolicitudTurnoActivity.kt
 import com.novacenter.app.databinding.ActivitySolicitudTurnoBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -72,7 +75,7 @@ class SolicitudTurnoActivity : AppCompatActivity() {
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     startActivity(Intent(this, TurnosActivity::class.java))
-                    finish()
+                    finish() // opcional para que no vuelva al formulario al presionar atrás
                 }, 1500)
 
             }
