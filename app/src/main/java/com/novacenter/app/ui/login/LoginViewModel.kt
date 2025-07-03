@@ -6,9 +6,7 @@ import kotlinx.coroutines.flow.StateFlow
 import com.novacenter.app.data.repository.AuthRepository
 import kotlinx.coroutines.launch
 
-class LoginViewModel : ViewModel() {
-
-    private val authRepository = AuthRepository()
+class LoginViewModel(val authRepository: AuthRepository) : ViewModel() {
 
     private val _usuarioLogueado = MutableStateFlow<LoginResponse?>(null)
     val usuarioLogueado: StateFlow<LoginResponse?> = _usuarioLogueado
