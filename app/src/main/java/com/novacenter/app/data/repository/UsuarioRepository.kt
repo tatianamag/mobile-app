@@ -1,13 +1,15 @@
 package com.novacenter.app.data.repository
 
-import com.novacenter.app.data.model.LoginRequest
-import com.novacenter.app.data.model.LoginResponse
+import android.content.Context
 import com.novacenter.app.data.model.Usuario
 import com.novacenter.app.data.network.RetrofitInstance
+import com.novacenter.app.data.network.UsuarioService
 
-class UsuarioRepository {
+class UsuarioRepository(context: Context) {
 
-    private val api = RetrofitInstance.usuarioService
+    private val api: UsuarioService = RetrofitInstance
+        .createRetrofit(context)
+        .create(UsuarioService::class.java)
 
     suspend fun obtenerUsuarios(): List<Usuario> {
         return api.getUsuarios()

@@ -1,20 +1,21 @@
 package com.novacenter.app.ui.usuario.viewmodel
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.novacenter.app.data.model.Usuario
-import com.novacenter.app.data.repository.UsuarioRepository
 import com.novacenter.app.data.model.LoginResponse
 import com.novacenter.app.data.repository.AuthRepository
+import com.novacenter.app.data.repository.UsuarioRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class UsuarioViewModel : ViewModel() {
+class UsuarioViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val authRepository = AuthRepository()
-
-    private val repository = UsuarioRepository()
+    // Usamos applicationContext para pasar a los repos
+    private val authRepository = AuthRepository(application.applicationContext)
+    private val usuarioRepository = UsuarioRepository(application.applicationContext)
 
     private val _usuarios = MutableStateFlow<List<Usuario>>(emptyList())
     val usuarios: StateFlow<List<Usuario>> = _usuarios
@@ -37,7 +38,8 @@ class UsuarioViewModel : ViewModel() {
     fun cargarUsuarios() {
         viewModelScope.launch {
             try {
-                _usuarios.value = repository.obtenerUsuarios()
+                val usuariosDesdeApi = usuarioRepository.obtenerUsuarios()
+                _usuarios.value = usuariosDesdeApi
             } catch (e: Exception) {
                 e.printStackTrace()
                 _usuarios.value = emptyList()
