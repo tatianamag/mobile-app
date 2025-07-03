@@ -3,10 +3,11 @@ package com.novacenter.app.ui.turnos.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.novacenter.app.data.model.Turno
 import com.novacenter.app.databinding.ItemTurnoBinding
-import com.novacenter.app.model.Turno
 
-class TurnoAdapter(private val lista: List<Turno>) : RecyclerView.Adapter<TurnoAdapter.TurnoViewHolder>() {
+class TurnoAdapter(private val lista: List<Turno>) :
+    RecyclerView.Adapter<TurnoAdapter.TurnoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TurnoViewHolder {
         val binding = ItemTurnoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -19,10 +20,12 @@ class TurnoAdapter(private val lista: List<Turno>) : RecyclerView.Adapter<TurnoA
 
     override fun getItemCount(): Int = lista.size
 
-    inner class TurnoViewHolder(private val binding: ItemTurnoBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class TurnoViewHolder(private val binding: ItemTurnoBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
         fun bind(turno: Turno) {
-            binding.tvFechaHora.text = "${turno.fecha} - ${turno.hora}"
-            binding.tvMedico.text = "${turno.medico} - ${turno.especialidad}"
+            binding.tvFechaHora.text = turno.fecha_y_hora
+            binding.tvMedico.text = "Médico ID: ${turno.id_medico} | Estado: ${turno.estado}"
         }
     }
 }

@@ -1,11 +1,14 @@
 package com.novacenter.app.ui.cartilla
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.novacenter.app.R
-import com.novacenter.app.data.model.Medico
+import com.novacenter.app.data.repository.MedicoRepository
+import kotlinx.coroutines.launch
 
 class CartillaActivity : AppCompatActivity() {
 
@@ -19,13 +22,29 @@ class CartillaActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerCartilla)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val medicos = listOf(
-            Medico("Dra. María López", "Pediatría", "Lunes a Viernes - 08:00 a 12:00"),
-            Medico("Dr. Juan García", "Clínica médica", "Martes y Jueves - 15:00 a 18:00"),
-            Medico("Dra. Sofía Ramírez", "Ginecología", "Miércoles - 10:00 a 13:00")
-        )
+        val repo = MedicoRepository(this)
 
-        adapter = MedicoAdapter(medicos)
-        recyclerView.adapter = adapter
+        lifecycleScope.launch {
+            try {
+                val response = repo.obtenerMedicos()
+                if (response.isSuccessful) {
+                    val medicos = response.body() ?: emptyList()
+                    adapter = MedicoAdapter(medicos)
+                    recyclerView.adapter = adapter
+                } else {
+                    Toast.makeText(
+                        this@CartillaActivity,
+                        "Error del servidor: ${response.code()}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(
+                    this@CartillaActivity,
+                    "Error al conectar con el servidor: ${e.message}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
     }
 }

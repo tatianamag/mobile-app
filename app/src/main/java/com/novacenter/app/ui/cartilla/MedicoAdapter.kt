@@ -14,7 +14,6 @@ class MedicoAdapter(private val lista: List<Medico>) :
     inner class MedicoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nombre: TextView = itemView.findViewById(R.id.tvNombre)
         val especialidad: TextView = itemView.findViewById(R.id.tvEspecialidad)
-        val horarios: TextView = itemView.findViewById(R.id.tvHorarios)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MedicoViewHolder {
@@ -27,7 +26,6 @@ class MedicoAdapter(private val lista: List<Medico>) :
         val medico = lista[position]
         holder.nombre.text = medico.nombre
         holder.especialidad.text = medico.especialidad
-        holder.horarios.text = "Horarios: ${medico.horarios}"
     }
 
     override fun getItemCount() = lista.size
