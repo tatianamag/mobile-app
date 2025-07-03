@@ -1,10 +1,7 @@
-package com.novacenter.app.data.model
-
 data class Usuario(
-    val id: Int,
-    val nombre: String,
-    val email: String,
-    val username: String,
-    val password: String? = null,
-    val token: String? = null
+    val id_persona: Int,
+    val estado: String,
+    val fecha_ultimo_login: String?,
+    val intentos_fallidos: Int,
+    val bloqueado: Boolean
 )

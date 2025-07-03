@@ -1,4 +1,4 @@
-package com.novacenter.app.data.model
+package com.example.app.model
 
 data class Turno(
     val id: Int,
@@ -7,5 +7,5 @@ data class Turno(
     val id_medico: Int,
     val fecha_y_hora: String,
     val estado: String,
-    val detalle_motivo: String?
+    val detalle_motivo: String
 )

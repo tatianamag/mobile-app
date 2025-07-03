@@ -7,21 +7,25 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 object RetrofitInstance {
 
-    private const val BASE_URL = "http://192.168.1.40:5000/api/"  // Reemplaza con tu IP/API real
+    private const val BASE_URL = "http://192.168.1.40:5000/api/"
 
     // Retrofit con token (para endpoints protegidos)
     fun getRetrofit(context: Context): Retrofit {
         val prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-        val token = prefs.getString("TOKEN", null)
+        val token = prefs.getString("jwt_token", null)
 
         val logging = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
-        val clientBuilder = OkHttpClient.Builder().addInterceptor(logging)
+        val clientBuilder = OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
 
         token?.let {
             clientBuilder.addInterceptor(object : Interceptor {
