@@ -59,6 +59,7 @@
 
                 <!-- Botón 1 -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/contactoCard"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginBottom="12dp"
