@@ -46,7 +46,8 @@
                     android:text="Nova Center"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@color/azulNova"
+                    android:fontFamily="@font/merriweather_bold"/>
             </LinearLayout>
 
             <!-- Botones -->
@@ -172,7 +173,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
     <!-- Barra de navegación inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navBar"
@@ -180,6 +180,7 @@
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
         app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"
         app:itemIconTint="@color/selector_nav"
         app:itemTextColor="@color/selector_nav"
         app:layout_constraintBottom_toBottomOf="parent"
