@@ -50,7 +50,7 @@
                     android:fontFamily="@font/merriweather_bold"/>
             </LinearLayout>
 
-            <!-- Botones -->
+            <!-- BOTONES -->
             <LinearLayout
                 android:id="@+id/homeButtons"
                 android:layout_width="match_parent"
@@ -58,12 +58,13 @@
                 android:orientation="vertical"
                 android:padding="12dp">
 
-                <!-- Botón 1 -->
+                <!-- Botón 1: Solicitar turno -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/contactoCard"
+                    android:id="@+id/botonSolicitarTurno"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/softGray"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
 
@@ -92,11 +93,13 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Botón 2 -->
+                <!-- Botón 2: Cartilla  -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/botonCartilla"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/softGray"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
 
@@ -125,11 +128,13 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Botón 3 -->
+                <!-- Botón 3: Contacto -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/botonContacto"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/softGray"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
 
@@ -152,7 +157,7 @@
                             android:layout_height="30dp"
                             android:layout_width="250dp"
                             android:textAlignment="center"
-                            android:text="Comunicate con el centro médico"
+                            android:text="Si tenés dudasComunicate con el centro médico"
                             android:textSize="14sp"
                             android:textColor="#666666" />
                     </LinearLayout>
@@ -176,7 +181,7 @@
     <!-- Barra de navegación inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navBar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
         app:menu="@menu/bottom_nav_menu"
