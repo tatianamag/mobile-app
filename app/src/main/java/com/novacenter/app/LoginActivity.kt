@@ -1,5 +1,6 @@
 package com.novacenter.app
 
+import kotlinx.coroutines.flow.collectLatest
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -53,6 +54,15 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                     startActivity(intent)
                     finish()
+                }
+            }
+        }
+        lifecycleScope.launchWhenStarted {
+            // Observa errores del ViewModel
+            viewModel.error.collectLatest { mensaje ->
+                mensaje?.let {
+                    Toast.makeText(this@LoginActivity, it, Toast.LENGTH_LONG).show()
+                    viewModel.limpiarError()
                 }
             }
         }
