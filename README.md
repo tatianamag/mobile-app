@@ -15,7 +15,7 @@ Una aplicación Android nativa para gestión de turnos médicos, diseñada para 
 ### 🔧 Cómo ejecutar la app
 
 1. Clonar el proyecto:  
-   `git clone https://github.com/tu_usuario/novacenter.git`
+   `git clone https://github.com/tatianamag/mobile-app.git`
 
 2. Abrir el proyecto con Android Studio
 
