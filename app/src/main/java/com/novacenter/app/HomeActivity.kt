@@ -22,6 +22,15 @@ class HomeActivity : AppCompatActivity() {
 
         binding.recyclerUsuarios.layoutManager = LinearLayoutManager(this)
 
+        // BOTONES (SIN CONFIGURAR AUN)
+        //binding.botonSolicitarTurno.setOnClickListener {
+         //   startActivity(Intent(this, TurnoActivity::class.java))
+        //}
+
+        //binding.botonCartilla.setOnClickListener {
+         //   startActivity(Intent(this, CartillaActivity::class.java))
+        //}
+
         // Cargar usuarios desde la API
         viewModel.cargarUsuarios()
 
