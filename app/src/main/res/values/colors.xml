@@ -13,4 +13,6 @@
     <color name="green">#4CAF50</color>
     <color name="azulNova">#004081</color>
 
+    <color name="primary">#004081</color> <!-- o el tono que quieras usar -->
+
 </resources>
