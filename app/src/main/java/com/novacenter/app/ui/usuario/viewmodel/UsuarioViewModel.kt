@@ -10,12 +10,13 @@ import com.novacenter.app.data.repository.UsuarioRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
 
 class UsuarioViewModel(application: Application) : AndroidViewModel(application) {
 
     private val authRepository = AuthRepository()
-
-    private val repository = UsuarioRepository()
+    private val repository = UsuarioRepository(application)
 
     private val _usuarios = MutableStateFlow<List<Usuario>>(emptyList())
     val usuarios: StateFlow<List<Usuario>> = _usuarios
@@ -27,8 +28,11 @@ class UsuarioViewModel(application: Application) : AndroidViewModel(application)
         viewModelScope.launch {
             try {
                 val response = authRepository.login(username, password)
-                _usuarioLogueado.value = response
-            } catch (e: Exception) {
+                _usuarioLogueado.value = if (response.isSuccessful) response.body() else null
+            } catch (e: IOException) {
+                e.printStackTrace()
+                _usuarioLogueado.value = null
+            } catch (e: HttpException) {
                 e.printStackTrace()
                 _usuarioLogueado.value = null
             }
@@ -38,9 +42,13 @@ class UsuarioViewModel(application: Application) : AndroidViewModel(application)
     fun cargarUsuarios() {
         viewModelScope.launch {
             try {
-                val lista = usuarioRepo.obtenerUsuarios()
-                _usuarios.value = lista
-            } catch (_: Exception) {}
+                val response = repository.obtenerUsuarios()
+                if (response.isSuccessful) {
+                    _usuarios.value = response.body() ?: emptyList()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 }

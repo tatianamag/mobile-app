@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.novacenter.app.databinding.ActivityHomeBinding
 import com.novacenter.app.ui.usuario.adapter.UsuarioAdapter
 import com.novacenter.app.ui.usuario.viewmodel.UsuarioViewModel
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
 
@@ -21,39 +23,29 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.recyclerUsuarios.layoutManager = LinearLayoutManager(this)
-
-        // Cargar usuarios desde la API
         viewModel.cargarUsuarios()
 
-        // Observar cambios
-        lifecycleScope.launchWhenStarted {
-            viewModel.usuarios.collect { lista ->
+        lifecycleScope.launch {
+            viewModel.usuarios.collectLatest { lista ->
                 binding.recyclerUsuarios.adapter = UsuarioAdapter(lista)
             }
         }
-        // 👉 Listener del BottomNavigationView
+
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> {
-                    // Ya estás en Home, podés hacer scrollTop si querés
-                    true
-                }
-
+                R.id.nav_home -> true
                 R.id.nav_salud -> {
                     startActivity(Intent(this, MiSaludActivity::class.java))
                     true
                 }
-
                 R.id.nav_turnos -> {
                     startActivity(Intent(this, MisTurnosActivity::class.java))
                     true
                 }
-
                 R.id.nav_perfil -> {
                     startActivity(Intent(this, PerfilActivity::class.java))
                     true
                 }
-
                 else -> false
             }
         }

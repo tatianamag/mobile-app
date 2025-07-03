@@ -3,8 +3,8 @@ package com.novacenter.app.ui.turnos
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.novacenter.app.data.model.Turno
 import com.novacenter.app.databinding.ActivityTurnosBinding
-import com.novacenter.app.model.Turno
 import com.novacenter.app.ui.turnos.adapter.TurnoAdapter
 
 class TurnosActivity : AppCompatActivity() {
@@ -17,9 +17,9 @@ class TurnosActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val listaTurnos = listOf(
-            Turno("Lunes 5/08", "10:30hs", "Dr. Pablo Rivas", "Oftalmología"),
-            Turno("Martes 6/08", "09:00hs", "Dra. Sánchez", "Cardiología"),
-            Turno("Viernes 9/08", "13:45hs", "Dr. Luján", "Clínico")
+            Turno(1, 10, 2, 1, "2025-08-05 10:30", "Confirmado", "Consulta de control"),
+            Turno(2, 11, 3, 2, "2025-08-06 09:00", "Pendiente", "Chequeo general"),
+            Turno(3, 12, 1, 3, "2025-08-09 13:45", "Confirmado", "Dolor ocular")
         )
 
         binding.recyclerTurnos.apply {

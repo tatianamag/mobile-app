@@ -1,19 +1,16 @@
 package com.novacenter.app.ui.turnos
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.content.Intent
-import com.google.android.material.snackbar.Snackbar
-import androidx.core.content.ContextCompat
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.android.material.datepicker.MaterialDatePicker
-<<<<<<<<< Temporary merge branch 1:app/src/main/java/com/novacenter/app/ui/turnos/SolicitudTurnoActivity.kt
+import com.google.android.material.snackbar.Snackbar
 import com.novacenter.app.R
-=========
->>>>>>>>> Temporary merge branch 2:app/src/main/java/com/novacenter/app/SolicitudTurnoActivity.kt
 import com.novacenter.app.databinding.ActivitySolicitudTurnoBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -70,14 +67,13 @@ class SolicitudTurnoActivity : AppCompatActivity() {
                 Toast.makeText(this, "Completá todos los campos", Toast.LENGTH_SHORT).show()
             } else {
                 Snackbar.make(binding.root, "Turno solicitado exitosamente.\nRedirigiendo a Mis turnos…", Snackbar.LENGTH_LONG)
-                    .setBackgroundTint(ContextCompat.getColor(this, R.color.green)) // opcional para destacar
+                    .setBackgroundTint(ContextCompat.getColor(this, R.color.green))
                     .show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     startActivity(Intent(this, TurnosActivity::class.java))
-                    finish() // opcional para que no vuelva al formulario al presionar atrás
+                    finish()
                 }, 1500)
-
             }
         }
     }
