@@ -1,28 +1,37 @@
 package com.novacenter.app.data.network
 
+import android.content.Context
+import com.novacenter.app.data.network.AuthInterceptor
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
     private const val BASE_URL = "http://localhost:5000" // reemplazalo con tu endpoint real
 
-    val retrofit: Retrofit by lazy {
+    // Cliente sin token (por ejemplo, para login)
+    private val retrofitNoAuth: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    val turnoService: TurnoService by lazy {
-        retrofit.create(TurnoService::class.java)
+    // Usalo así: RetrofitInstance.createRetrofit(context).create(UsuarioService::class.java)
+    fun createRetrofit(context: Context): Retrofit {
+        val client = OkHttpClient.Builder()
+            .addInterceptor(AuthInterceptor(context))
+            .build()
+
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
     }
 
+    // Servicios públicos (sin autenticación)
     val authService: AuthService by lazy {
-        retrofit.create(AuthService::class.java)
+        retrofitNoAuth.create(AuthService::class.java)
     }
-
-    val usuarioService: UsuarioService by lazy {
-        retrofit.create(UsuarioService::class.java)
-    }
-
 }
