@@ -50,6 +50,20 @@
                     android:fontFamily="@font/merriweather_bold"/>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/descripcionCentro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                android:paddingHorizontal="24dp"
+                android:text="Bienvenido a Nova Center. Acá podrás gestionar tus turnos, revisar tu información médica y mantener tus datos siempre actualizados."
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textColor="#C7491C"
+                android:fontFamily="@font/karla_regular" />
+
+
             <!-- BOTONES -->
             <LinearLayout
                 android:id="@+id/homeButtons"
