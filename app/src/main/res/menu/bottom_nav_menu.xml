@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/nav_turnos"
-        android:icon="@drawable/ic_contact"
+        android:icon="@drawable/ic_event"
         android:title="Mis turnos" />
 
     <item
