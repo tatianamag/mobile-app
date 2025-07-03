@@ -46,7 +46,8 @@
                     android:text="Nova Center"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@color/azulNova"
+                    android:fontFamily="@font/merriweather_bold"/>
             </LinearLayout>
 
             <!-- Botones -->
