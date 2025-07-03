@@ -2,7 +2,6 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
-
 android {
     namespace = "com.novacenter.app"
     compileSdk = 35
@@ -47,10 +46,11 @@ android {
 }
 
 dependencies {
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
-    implementation(libs.androidx.core.ktx)
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0") // Puedes ajustar la versión si es necesario
+
+    implementation("androidx.core:core-ktx:1.10.1")
+    implementation("androidx.core:core:1.10.1")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
