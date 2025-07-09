@@ -1,0 +1,8 @@
+C:\Users\juani\OneDrive\Documentos\ApiCentroSalud\ApiCentroSalud\obj\Debug\net9.0\ApiCentroSalud.csproj.AssemblyReference.cache
+C:\Users\juani\OneDrive\Documentos\ApiCentroSalud\ApiCentroSalud\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\juani\OneDrive\Documentos\ApiCentroSalud\ApiCentroSalud\obj\Debug\net9.0\ApiCentroSalud.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\juani\OneDrive\Documentos\ApiCentroSalud\ApiCentroSalud\obj\Debug\net9.0\ApiCentroSalud.AssemblyInfoInputs.cache
+C:\Users\juani\OneDrive\Documentos\ApiCentroSalud\ApiCentroSalud\obj\Debug\net9.0\ApiCentroSalud.AssemblyInfo.cs
+C:\Users\juani\OneDrive\Documentos\ApiCentroSalud\ApiCentroSalud\obj\Debug\net9.0\ApiCentroSalud.csproj.CoreCompileInputs.cache
+C:\Users\juani\OneDrive\Documentos\ApiCentroSalud\ApiCentroSalud\obj\Debug\net9.0\ApiCentroSalud.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\juani\OneDrive\Documentos\ApiCentroSalud\ApiCentroSalud\obj\Debug\net9.0\ApiCentroSalud.MvcApplicationPartsAssemblyInfo.cache
