@@ -9,7 +9,7 @@
     android:background="#C9C5FF"
     android:textColor="@color/azulNova"
 
-    tools:context=".MainActivity">
+    tools:context=".ui.home.MainActivity">
 
     <ImageView
         android:id="@+id/logoImage"

@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".NovaApp"
+        android:name=".NovaCenterApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,11 +15,11 @@
         android:theme="@style/Theme.NovaCenter"
         tools:targetApi="31">
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".ui.login.ForgotPasswordActivity"
             android:exported="false" />
         <activity android:name=".ui.cartilla.CartillaActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.home.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,8 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.turnos.SolicitudTurnoActivity" />
         <activity android:name=".ui.turnos.TurnosActivity" />
     </application>

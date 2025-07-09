@@ -1,4 +1,4 @@
-package com.novacenter.app
+package com.novacenter.app.ui.login
 
 import android.content.Context
 import android.content.Intent
@@ -8,7 +8,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.novacenter.app.databinding.ActivityLoginBinding
-import com.novacenter.app.ui.usuario.viewmodel.UsuarioViewModel
+import com.novacenter.app.ui.home.HomeActivity
+import com.novacenter.app.viewmodel.UsuarioViewModel
 
 class LoginActivity : AppCompatActivity() {
 

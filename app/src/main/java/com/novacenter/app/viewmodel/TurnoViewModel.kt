@@ -1,4 +1,4 @@
-package com.novacenter.app.ui.turno.viewmodel
+package com.novacenter.app.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

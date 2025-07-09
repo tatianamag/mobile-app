@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.novacenter.app.data.model.Turno
 import com.novacenter.app.databinding.ActivityTurnosBinding
-import com.novacenter.app.ui.turnos.adapter.TurnoAdapter
 
 class TurnosActivity : AppCompatActivity() {
 

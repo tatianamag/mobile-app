@@ -1,4 +1,4 @@
-package com.novacenter.app
+package com.novacenter.app.ui.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package com.novacenter.app.ui.turnos.adapter
+package com.novacenter.app.ui.turnos
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

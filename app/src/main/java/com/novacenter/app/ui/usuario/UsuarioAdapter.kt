@@ -1,4 +1,4 @@
-package com.novacenter.app.ui.usuario.adapter
+package com.novacenter.app.ui.usuario
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

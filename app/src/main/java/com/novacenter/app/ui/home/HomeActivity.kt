@@ -1,4 +1,4 @@
-package com.novacenter.app
+package com.novacenter.app.ui.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.novacenter.app.R
 import com.novacenter.app.databinding.ActivityHomeBinding
-import com.novacenter.app.ui.usuario.adapter.UsuarioAdapter
-import com.novacenter.app.ui.usuario.viewmodel.UsuarioViewModel
+import com.novacenter.app.ui.salud.MiSaludActivity
+import com.novacenter.app.ui.turnos.MisTurnosActivity
+import com.novacenter.app.ui.perfil.PerfilActivity
+import com.novacenter.app.ui.usuario.UsuarioAdapter
+import com.novacenter.app.viewmodel.UsuarioViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
