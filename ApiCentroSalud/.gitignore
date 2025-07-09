@@ -1,0 +1,42 @@
+# Windows
+[Dd]esktop.ini
+Thumbs.db
+
+# ASP.NET Core
+wwwroot/
+bin/
+obj/
+node_modules/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.sln.docstates
+
+# Rider
+.idea/
+
+# VSCode
+.vscode/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer directory
+_install/
+
+# Windows Installer archives
+*.zip
+*.tar.gz
+
+# .NET SDK / Visual Studio for Mac
+.vscode/
+.idea/
