@@ -15,25 +15,26 @@ namespace ApiCentroSalud.Helpers
             _secretKey = secretKey;
         }
 
-        public string GenerateToken(string username)
-        {
-            var claims = new[]
-            {
-                new Claim(ClaimTypes.Name, username)
-            };
+        public string GenerateToken(int idPersona, string dni, string rol)
+{
+    var claims = new[]
+    {
+        new Claim("ID_persona", idPersona.ToString()),
+        new Claim("Dni", dni),
+        new Claim(ClaimTypes.Role, rol ?? "Usuario")
+    };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
-            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
+    var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(
-                issuer: "CentroSaludAPI",
-                audience: "CentroSaludUsers",
-                claims: claims,
-                expires: DateTime.Now.AddHours(1),
-                signingCredentials: credentials
-            );
+    var token = new JwtSecurityToken(
+        issuer: "CentroSaludAPI",
+        audience: "CentroSaludUsers",
+        claims: claims,
+        expires: DateTime.Now.AddHours(1),
+        signingCredentials: credentials);
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
+    return new JwtSecurityTokenHandler().WriteToken(token);
+}
     }
 }

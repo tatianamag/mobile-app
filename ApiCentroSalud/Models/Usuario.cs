@@ -3,6 +3,7 @@ namespace ApiCentroSalud.Models
     public class Usuarios
     {
         public int ID_persona { get; set; }
+        public string Dni { get; set; }
         public string Contraseña { get; set; }
         public string Estado { get; set; }
 

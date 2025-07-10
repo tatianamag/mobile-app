@@ -4,6 +4,6 @@ namespace ApiCentroSalud.Interfaces
 {
     public interface IAuthService
     {
-        Task<UsuarioDto> LoginAsync(LoginRequest request);
+        Task<UsuarioDto> LoginPorDniAsync(LoginRequest request);
     }
 }
