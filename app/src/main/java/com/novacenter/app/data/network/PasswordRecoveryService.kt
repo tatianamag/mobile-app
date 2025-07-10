@@ -1,9 +1,10 @@
+package com.novacenter.app.data.network
+
+import com.novacenter.app.data.model.RecuperarRequest
+import com.novacenter.app.data.model.RestablecerRequest
 import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.Response
-
-data class RecuperarRequest(val email: String)
-data class RestablecerRequest(val token: String, val nuevaContrasena: String)
 
 interface PasswordRecoveryService {
     @POST("auth/solicitar-recuperacion")
