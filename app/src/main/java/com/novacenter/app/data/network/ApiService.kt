@@ -22,20 +22,11 @@ interface ApiService {
     suspend fun restablecerPassword(@Body req: RestablecerRequest): Response<String>
 
     //  Turnos
-    @POST("Turno/crear")
-    suspend fun createTurno(@Body turno: TurnoRequest): Response<TurnoRequest>
+    @GET("api/turno/listado")
+    suspend fun obtenerTurnos(): Response<List<TurnoDTO>>
 
-    @GET("Turno/detalle/{id}")
-    suspend fun getTurnoById(@Path("id") id: Int): Response<TurnoRequest>
+    @POST("api/turno/agregar")
+    suspend fun agregarTurno(@Body turno: TurnoDTO): Response<TurnoDTO>
 
-    @GET("Turno/paciente/{idPaciente}")
-    suspend fun getTurnosPaciente(@Path("idPaciente") id: Int): Response<List<TurnoDTO>>
-
-    @GET("Turno/medico/{idMedico}")
-    suspend fun getTurnosMedico(@Path("idMedico") id: Int): Response<List<TurnoDTO>>
-
-    //  Usuarios
-    //@GET("Paciente/detalle/{id}")
-    //suspend fun getPaciente(@Path("id") id: Int): Response<Paciente>
-
-}
+    @GET("api/turno/detalle/{id}")
+    suspend fun obtenerDetalle(@Path("id") id: Int): Response<TurnoDTO>}

@@ -8,9 +8,7 @@ import retrofit2.Response
 
 class MedicoRepository(context: Context) {
 
-    private val api = RetrofitInstance.getRetrofit(context).create(MedicoService::class.java)
+    private val api = RetrofitInstance.getApiServiceWithToken(context).create(MedicoService::class.java)
 
     suspend fun obtenerMedicos(): Response<List<Medico>> = api.obtenerMedicos()
-
-    suspend fun obtenerMedicoPorId(id: Int): Response<Medico> = api.obtenerMedicoPorId(id)
 }

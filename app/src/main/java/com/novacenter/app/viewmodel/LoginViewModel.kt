@@ -1,5 +1,6 @@
 package com.novacenter.app.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.novacenter.app.data.model.LoginResponse
@@ -18,20 +19,23 @@ class LoginViewModel(val authRepository: AuthRepository) : ViewModel() {
     fun login(username: String, password: String) {
         viewModelScope.launch {
             try {
+                Log.d("Login", "Iniciando login desde ViewModel")
                 val response = authRepository.login(username, password)
                 if (response.isSuccessful) {
+                    Log.d("Login", "Login exitoso: ${response.body()}")
                     _usuarioLogueado.value = response.body()
                 } else {
+                    Log.e("Login", "Login fallido: código ${response.code()}")
                     _usuarioLogueado.value = null  // login incorrecto
                 }
             } catch (e: IOException) {
-                e.printStackTrace()
+                Log.e("Login", "Error de red: ${e.message}")
                 _usuarioLogueado.value = null  // error de red
             } catch (e: HttpException) {
-                e.printStackTrace()
+                Log.e("Login", "Error HTTP: ${e.message}")
                 _usuarioLogueado.value = null  // error HTTP
             } catch (e: Exception) {
-                e.printStackTrace()
+                Log.e("Login", "Error inesperado: ${e.message}")
                 _usuarioLogueado.value = null
             }
         }

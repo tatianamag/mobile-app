@@ -1,9 +1,7 @@
 package com.novacenter.app.data.network
 
 import android.content.Context
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,8 +11,17 @@ object RetrofitInstance {
 
     private const val BASE_URL = "http://192.168.1.34:5006/"
 
+    // Retrofit sin token (para login y endpoints públicos)
+    val authService: AuthService by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(AuthService::class.java)
+    }
+
     // Retrofit con token (para endpoints protegidos)
-    fun getRetrofit(context: Context): Retrofit {
+    fun getApiServiceWithToken(context: Context): Retrofit {
         val prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
         val token = prefs.getString("TOKEN", null)
 
@@ -43,12 +50,8 @@ object RetrofitInstance {
             .build()
     }
 
-    // Retrofit sin token (para login)
-    val authService: AuthService by lazy {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(AuthService::class.java)
+    // ApiService para endpoints protegidos, se debe obtener pasando context para el token
+    fun getApiService(context: Context): ApiService {
+        return getApiServiceWithToken(context).create(ApiService::class.java)
     }
 }

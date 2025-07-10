@@ -3,6 +3,8 @@ package com.novacenter.app.ui.login
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
                 binding.tvError.visibility = android.view.View.VISIBLE
             } else {
                 binding.tvError.visibility = android.view.View.GONE
+                Log.d("Login", "Llamando a login con $username y $password")
                 viewModel.login(username, password)
             }
         }
@@ -41,17 +44,21 @@ class LoginActivity : AppCompatActivity() {
 
         // Observar el resultado del login
         lifecycleScope.launchWhenStarted {
+            Log.d("Login", "Observando resultados del login")
             viewModel.usuarioLogueado.collect { response ->
+                Log.d("Login", "Respuesta recibida: $response")
                 if (response != null) {
-                    // Guardar el token en SharedPreferences
                     val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
                     prefs.edit().putString("TOKEN", response.token).apply()
 
                     Toast.makeText(this@LoginActivity, "¡Login exitoso!", Toast.LENGTH_SHORT).show()
 
-                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                     finish()
+                } else {
+                    // Login fallido
+                    binding.tvError.text = "Usuario o contraseña incorrectos"
+                    binding.tvError.visibility = View.VISIBLE
                 }
             }
         }

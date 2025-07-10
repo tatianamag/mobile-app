@@ -26,15 +26,6 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.recyclerUsuarios.layoutManager = LinearLayoutManager(this)
-        viewModel.cargarUsuarios()
-
-        lifecycleScope.launch {
-            viewModel.usuarios.collectLatest { lista ->
-                binding.recyclerUsuarios.adapter = UsuarioAdapter(lista)
-            }
-        }
-
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> true

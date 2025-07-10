@@ -1,6 +1,7 @@
 package com.novacenter.app.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.novacenter.app.data.model.TurnoRequest
@@ -13,15 +14,18 @@ import kotlinx.coroutines.launch
 class TurnoViewModel(application: Application) : AndroidViewModel(application) {
     private val repo = TurnoRepository(application)
 
-    private val _turnos = MutableStateFlow<List<TurnoRequest>>(emptyList())
-    val turnos: StateFlow<List<TurnoRequest>> = _turnos
+    private val _turnos = MutableStateFlow<List<TurnoDTO>>(emptyList())
+    val turnos: StateFlow<List<TurnoDTO>> = _turnos
 
     fun cargarTurnos() {
         viewModelScope.launch {
             try {
-                val response = repo.getTurnos()
+                val response = repo.obtenerTurnos()
                 if (response.isSuccessful) {
-                    _turnos.value = response.body() ?: emptyList()
+                    val lista = response.body() ?: emptyList()
+                    _turnos.value = lista
+                } else {
+                    Log.e("TurnoVM", "Error HTTP: ${response.code()} - ${response.message()}")
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -32,7 +36,7 @@ class TurnoViewModel(application: Application) : AndroidViewModel(application) {
     fun crearTurno(turnoDTO: TurnoDTO) {
         viewModelScope.launch {
             try {
-                val response = repo.crearTurno(turnoDTO)
+                val response = repo.agregarTurno(turnoDTO)
                 if (response.isSuccessful) {
                     cargarTurnos()
                 }

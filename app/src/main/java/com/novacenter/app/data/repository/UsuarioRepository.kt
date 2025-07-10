@@ -8,7 +8,7 @@ import retrofit2.Response
 
 class UsuarioRepository(context: Context) {
 
-    private val api = RetrofitInstance.getRetrofit(context).create(UsuarioService::class.java)
+    private val api = RetrofitInstance.getApiServiceWithToken(context).create(UsuarioService::class.java)
 
     suspend fun obtenerUsuarios(): Response<List<Usuario>> = api.getUsuarios()
 
