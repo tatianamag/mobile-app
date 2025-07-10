@@ -1,7 +1,12 @@
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
 namespace ApiCentroSalud.Models
 {
+    [Table("Persona")]
     public class Persona
     {
+        [Key]
         public int ID_persona { get; set; }
         public string Nombre_completo { get; set; }
         public string Sexo { get; set; }

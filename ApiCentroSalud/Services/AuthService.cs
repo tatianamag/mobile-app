@@ -11,11 +11,13 @@ namespace ApiCentroSalud.Services
     {
         private readonly CentroSaludContext _context;
         private readonly IConfiguration _configuration;
+        private readonly TokenGenerator _tokenGenerator;
 
-        public AuthService(CentroSaludContext context, IConfiguration configuration)
+       public AuthService(CentroSaludContext context, IConfiguration configuration, TokenGenerator tokenGenerator)
 {
     _context = context;
     _configuration = configuration;
+     _tokenGenerator = tokenGenerator;
 }
        public async Task<UsuarioDto> LoginPorDniAsync(LoginRequest request)
 {
@@ -29,8 +31,7 @@ namespace ApiCentroSalud.Services
 
     if (usuario == null) return null;
 
-    var generator = new TokenGenerator(_configuration["Jwt:SecretKey"]);
-    var token = generator.GenerateToken(persona.ID_persona, persona.DNI, usuario.Estado);
+    var token = _tokenGenerator.GenerateToken(persona.ID_persona, persona.DNI, "Administrador");
 
     return new UsuarioDto
     {

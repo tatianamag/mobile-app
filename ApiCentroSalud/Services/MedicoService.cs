@@ -27,7 +27,7 @@ namespace ApiCentroSalud.Services
                 {
                     Id = pr.Persona.ID_persona,
                     Nombre = pr.Persona.Nombre_completo,
-                    Especialidad = _context.EspecialidadesMedico
+                    Especialidad = _context.EspecialidadMedico
                         .Where(e => e.ID_persona == pr.Persona.ID_persona)
                         .Select(e => e.Especialidad)
                         .FirstOrDefault()
@@ -49,7 +49,7 @@ namespace ApiCentroSalud.Services
                 {
                     Id = pr.Persona.ID_persona,
                     Nombre = pr.Persona.Nombre_completo,
-                    Especialidad = _context.EspecialidadesMedico
+                    Especialidad = _context.EspecialidadMedico
                         .Where(e => e.ID_persona == pr.Persona.ID_persona)
                         .Select(e => e.Especialidad)
                         .FirstOrDefault()
