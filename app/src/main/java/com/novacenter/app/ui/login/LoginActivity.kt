@@ -49,7 +49,10 @@ class LoginActivity : AppCompatActivity() {
                 Log.d("Login", "Respuesta recibida: $response")
                 if (response != null) {
                     val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-                    prefs.edit().putString("TOKEN", response.token).apply()
+                    prefs.edit()
+                        .putString("TOKEN", response.token)
+                        .putInt("ID_PERSONA", response.idPersona)
+                        .apply()
 
                     Toast.makeText(this@LoginActivity, "¡Login exitoso!", Toast.LENGTH_SHORT).show()
 

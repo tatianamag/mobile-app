@@ -50,6 +50,10 @@ object RetrofitInstance {
             .build()
     }
 
+    fun getPacienteService(context: Context): PacienteService {
+        return getApiServiceWithToken(context).create(PacienteService::class.java)
+    }
+
     // ApiService para endpoints protegidos, se debe obtener pasando context para el token
     fun getApiService(context: Context): ApiService {
         return getApiServiceWithToken(context).create(ApiService::class.java)
