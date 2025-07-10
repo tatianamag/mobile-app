@@ -1,5 +1,8 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace ApiCentroSalud.Models
 {
+    [Table("Turno")]
     public class Turno
     {
         public int ID_turno { get; set; }
@@ -10,7 +13,7 @@ namespace ApiCentroSalud.Models
         public DateTime Fecha_solicitud { get; set; }
         public DateTime? Fecha_confirmacion { get; set; }
         public string Estado { get; set; }
-        public string Detalle_motivo { get; set; }
+        public string? Detalle_motivo { get; set; }
 
         public Persona Paciente { get; set; }  // Relación con Persona
         public Motivo Motivo { get; set; }      // Relación con Motivo

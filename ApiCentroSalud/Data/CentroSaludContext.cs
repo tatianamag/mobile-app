@@ -31,7 +31,8 @@ namespace ApiCentroSalud.Data
             modelBuilder.Entity<EspecialidadMedico>().HasKey(em => em.ID_persona);
             modelBuilder.Entity<Motivo>().HasKey(m => m.ID_motivo);
             modelBuilder.Entity<Accion>().HasKey(a => a.ID_accion);
-            modelBuilder.Entity<Turno>().HasKey(t => t.ID_turno);
+            modelBuilder.Entity<Turno>().HasKey(t => t.ID_turno); 
+            modelBuilder.Entity<Turno>().ToTable("Turno");
             modelBuilder.Entity<Usuarios>().HasKey(u => u.ID_persona);
             modelBuilder.Entity<Secretarios>().HasKey(s => s.Codigo);
             modelBuilder.Entity<DisponibilidadMedico>().HasKey(d => d.ID_disponibilidad);
@@ -40,7 +41,23 @@ namespace ApiCentroSalud.Data
     .HasOne(u => u.Persona)
     .WithOne()
     .HasForeignKey<Usuarios>(u => u.ID_persona);
-    
+    modelBuilder.Entity<Turno>()
+    .HasOne(t => t.Medico)
+    .WithMany()
+    .HasForeignKey(t => t.ID_medico)
+    .HasPrincipalKey(p => p.ID_persona);
+
+modelBuilder.Entity<Turno>()
+    .HasOne(t => t.Paciente)
+    .WithMany()
+    .HasForeignKey(t => t.ID_paciente)
+    .HasPrincipalKey(p => p.ID_persona);
+
+modelBuilder.Entity<Turno>()
+    .HasOne(t => t.Motivo)
+    .WithMany()
+    .HasForeignKey(t => t.ID_motivo)
+    .HasPrincipalKey(m => m.ID_motivo);
             // Clave compuesta
             modelBuilder.Entity<Permisos>().HasKey(p => new { p.Nombre_rol, p.ID_accion });
 
