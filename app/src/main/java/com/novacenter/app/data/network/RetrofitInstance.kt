@@ -34,10 +34,10 @@ object RetrofitInstance {
             .readTimeout(30, TimeUnit.SECONDS)
             .addInterceptor(logging)
 
-        token?.let {
+        if (!token.isNullOrEmpty()) {
             clientBuilder.addInterceptor { chain ->
                 val request = chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer $it")
+                    .addHeader("Authorization", "Bearer $token")
                     .build()
                 chain.proceed(request)
             }

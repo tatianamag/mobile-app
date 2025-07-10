@@ -19,8 +19,11 @@ class PacienteViewModel(private val pacienteService: PacienteService) : ViewMode
         viewModelScope.launch {
             try {
                 val response = pacienteService.obtenerDetallePaciente(id)
+                Log.d("PacienteVM", "Código HTTP: ${response.code()}")
                 if (response.isSuccessful) {
                     _paciente.value = response.body()
+                } else {
+                    Log.e("PacienteVM", "Error al obtener datos: ${response.errorBody()?.string()}")
                 }
             } catch (e: Exception) {
                 Log.e("Paciente", "Error: ${e.message}")

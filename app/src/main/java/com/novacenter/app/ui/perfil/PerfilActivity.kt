@@ -2,6 +2,7 @@ package com.novacenter.app.ui.perfil
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -33,6 +34,9 @@ class PerfilActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val pacienteId = obtenerPacienteId()
+        val token = getSharedPreferences("app_prefs", MODE_PRIVATE).getString("TOKEN", null)
+        Log.d("Perfil", "Paciente ID: $pacienteId")
+        Log.d("Perfil", "Token: $token")
         if (pacienteId != null) {
             viewModel.cargarPaciente(pacienteId)
         } else {
