@@ -1,6 +1,11 @@
 package com.novacenter.app.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class LoginRequest(
-    val usuario: String,
+    @SerializedName("dni")
+    val dni: String,
+
+    @SerializedName("contraseña")
     val contraseña: String
 )

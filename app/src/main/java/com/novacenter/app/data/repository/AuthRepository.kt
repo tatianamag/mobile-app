@@ -9,7 +9,7 @@ class AuthRepository {
     private val authService = RetrofitInstance.authService
 
     suspend fun login(username: String, password: String): Response<LoginResponse> {
-        val request = LoginRequest(username, password)
+        val request = LoginRequest(dni = username, contraseña = password)
         return authService.login(request)
     }
 }

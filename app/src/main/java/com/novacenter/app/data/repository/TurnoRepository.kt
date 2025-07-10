@@ -1,33 +1,31 @@
 package com.novacenter.app.data.repository
 
 import android.content.Context
-import com.novacenter.app.data.model.Turno
+import com.novacenter.app.data.model.LoginRequest
+import com.novacenter.app.data.model.LoginResponse
 import com.novacenter.app.data.model.TurnoDTO
+import com.novacenter.app.data.network.ApiService
 import com.novacenter.app.data.network.RetrofitInstance
-import com.novacenter.app.data.network.TurnoService
 import retrofit2.Response
 
-class TurnoRepository(context: Context) {
+class TurnoRepository(private val context: Context) {
 
-    private val api = RetrofitInstance.getRetrofit(context).create(TurnoService::class.java)
+    suspend fun login(request: LoginRequest): Response<LoginResponse> {
+        return RetrofitInstance.authService.login(request)
+    }
 
-    suspend fun getTurnos(): Response<List<Turno>> {
+    suspend fun obtenerTurnos(): Response<List<TurnoDTO>> {
+        val api = RetrofitInstance.getApiServiceWithToken(context).create(ApiService::class.java)
         return api.obtenerTurnos()
     }
 
-    suspend fun crearTurno(turno: TurnoDTO): Response<Turno> {
-        return api.crearTurno(turno)
+    suspend fun agregarTurno(turno: TurnoDTO): Response<TurnoDTO> {
+        val api = RetrofitInstance.getApiServiceWithToken(context).create(ApiService::class.java)
+        return api.agregarTurno(turno)
     }
 
-    suspend fun getTurnoPorId(id: Int): Response<Turno> {
-        return api.obtenerTurnoPorId(id)
-    }
-
-    suspend fun actualizarTurno(id: Int, turno: TurnoDTO): Response<Unit> {
-        return api.actualizarTurno(id, turno)
-    }
-
-    suspend fun eliminarTurno(id: Int): Response<Unit> {
-        return api.eliminarTurno(id)
+    suspend fun obtenerDetalle(id: Int): Response<TurnoDTO> {
+        val api = RetrofitInstance.getApiServiceWithToken(context).create(ApiService::class.java)
+        return api.obtenerDetalle(id)
     }
 }

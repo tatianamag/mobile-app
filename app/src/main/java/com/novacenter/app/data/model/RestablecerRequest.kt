@@ -1,6 +1,8 @@
 package com.novacenter.app.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class RestablecerRequest(
-    val token: String,
-    val nuevaContrasena: String
+    @SerializedName("Token") val token: String,
+    @SerializedName("NuevaContrasena") val nuevaContrasena: String
 )

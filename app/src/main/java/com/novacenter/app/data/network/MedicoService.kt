@@ -7,9 +7,9 @@ import retrofit2.http.Path
 
 interface MedicoService {
 
-    @GET("api/medicos")
+    @GET("Medico/listado")
     suspend fun obtenerMedicos(): Response<List<Medico>>
 
-    @GET("api/medicos/{id}")
-    suspend fun obtenerMedicoPorId(@Path("id") id: Int): Response<Medico>
+    @GET("Medico/detalle/{id}")
+    suspend fun obtenerDetalleMedico(@Path("id") id: Int): Response<Medico>
 }
