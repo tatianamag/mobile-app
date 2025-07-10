@@ -11,23 +11,18 @@ class TurnoRepository(context: Context) {
 
     private val api = RetrofitInstance.getRetrofit(context).create(TurnoService::class.java)
 
-    suspend fun getTurnos(): Response<List<TurnoRequest>> {
+    suspend fun obtenerTurnos(): Response<List<TurnoDTO>> {
         return api.obtenerTurnos()
     }
 
-    suspend fun crearTurno(turno: TurnoDTO): Response<TurnoRequest> {
-        return api.crearTurno(turno)
-    }
 
-    suspend fun getTurnoPorId(id: Int): Response<TurnoRequest> {
-        return api.obtenerTurnoPorId(id)
-    }
+   // suspend fun crearTurno(turno: TurnoDTO): Response<TurnoRequest> {
+   //     return api.crearTurno(turno)
+   // }
 
-    suspend fun actualizarTurno(id: Int, turno: TurnoDTO): Response<Unit> {
-        return api.actualizarTurno(id, turno)
-    }
+   // suspend fun getTurnoPorId(id: Int): Response<TurnoRequest> {
+     //  return api.obtenerTurnoPorId(id)
+    // }
 
-    suspend fun eliminarTurno(id: Int): Response<Unit> {
-        return api.eliminarTurno(id)
-    }
+
 }

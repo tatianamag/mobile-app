@@ -3,18 +3,17 @@ package com.novacenter.app.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.novacenter.app.data.model.Paciente
+import com.novacenter.app.data.model.Persona
 import com.novacenter.app.data.model.PacienteUpdateRequest
 import com.novacenter.app.data.network.PacienteService
-import com.novacenter.app.data.network.RetrofitInstance
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class PacienteViewModel(private val pacienteService: PacienteService) : ViewModel() {
 
-    private val _paciente = MutableStateFlow<Paciente?>(null)
-    val paciente: StateFlow<Paciente?> = _paciente
+    private val _paciente = MutableStateFlow<Persona?>(null)
+    val paciente: StateFlow<Persona?> = _paciente
 
     fun cargarPaciente(id: Int) {
         viewModelScope.launch {

@@ -11,8 +11,8 @@ interface TurnoService {
     suspend fun solicitarTurno(@Body turno: TurnoRequest): Response<Unit>
 
     @GET("Turno/listado")
-    suspend fun obtenerTurnos(): Response<List<TurnoResumen>>
+    suspend fun obtenerTurnos(): Response<List<TurnoDTO>>
 
     @GET("Turno/detalle/{id}")
-    suspend fun obtenerTurnoDetalle(@Path("id") id: Int): Response<TurnoDetalle>
+    suspend fun obtenerTurnoDetalle(@Path("id") id: Int): Response<TurnoDTO>
 }

@@ -1,6 +1,6 @@
 package com.novacenter.app.data.network
 
-import com.novacenter.app.data.model.Paciente
+import com.novacenter.app.data.model.Persona
 import com.novacenter.app.data.model.PacienteUpdateRequest
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -11,7 +11,7 @@ import retrofit2.Response
 interface PacienteService {
 
     @GET("Paciente/detalle/{id}")
-    suspend fun obtenerDetallePaciente(@Path("id") id: Int): Response<Paciente>
+    suspend fun obtenerDetallePaciente(@Path("id") id: Int): Response<Persona>
 
     @POST("Paciente/editar/{id}")
     suspend fun editarPaciente(

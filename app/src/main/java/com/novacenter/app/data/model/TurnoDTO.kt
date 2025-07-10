@@ -1,10 +1,12 @@
 package com.novacenter.app.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class TurnoDTO(
-    val id_paciente: Int,
-    val id_motivo: Int,
-    val id_medico: Int,
-    val fecha_y_hora: String,
-    val estado: String,
-    val detalle_motivo: String
+    @SerializedName("Id_Paciente") val idPaciente: Int,
+    @SerializedName("Id_Motivo") val idMotivo: Int,
+    @SerializedName("Id_Medico") val idMedico: Int,
+    @SerializedName("Fecha_y_Hora") val fechaYHora: String,
+    @SerializedName("Estado") val estado: String,
+    @SerializedName("Detalle_Motivo") val detalleMotivo: String
 )

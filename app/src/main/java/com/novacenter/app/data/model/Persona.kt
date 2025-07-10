@@ -1,6 +1,6 @@
 package com.novacenter.app.data.model
 
-data class Paciente(
+data class Persona(
     val id: Int,
     val nombre: String?,
     val sexo: String?,

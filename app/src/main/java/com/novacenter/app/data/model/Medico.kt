@@ -1,7 +1,9 @@
 package com.novacenter.app.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Medico(
-    val id_medico: Int,
-    val nombre: String,
-    val especialidad: String
+    @SerializedName("Id_Medico") val idMedico: Int,
+    @SerializedName("Nombre") val nombre: String,
+    @SerializedName("Especialidad") val especialidad: String
 )
