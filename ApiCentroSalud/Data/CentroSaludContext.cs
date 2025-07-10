@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ApiCentroSalud.Models;
 
 namespace ApiCentroSalud.Data
 {

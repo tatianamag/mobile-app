@@ -1,3 +1,4 @@
+using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -5,9 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using ApiCentroSalud.Data;
-using Services;
-using Interfaces;
-using Helpers;
+using ApiCentroSalud.Services;
+using ApiCentroSalud.Interfaces;
+using ApiCentroSalud.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,12 +44,26 @@ builder.Services.AddScoped<IMedicoService, MedicoService>();
 builder.Services.AddScoped<ISecretariaService, SecretariaService>();
 
 // Agregar helpers
-builder.Services.AddScoped<TokenGenerator>();
+builder.Services.AddScoped<TokenGenerator>(provider =>
+{
+    var config = provider.GetRequiredService<IConfiguration>();
+    var secretKey = config["Jwt:SecretKey"];
+    return new TokenGenerator(secretKey);
+});
 builder.Services.AddScoped<PasswordHasher>();
+builder.Services.AddScoped<EmailSender>();
 
 // Agregar Swagger para documentación
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "ApiCentroSalud",
+        Version = "v1",
+        Description = "Documentación para la API del Centro de Salud"
+    });
+});
 
 var app = builder.Build();
 
@@ -58,7 +73,11 @@ app.UseAuthorization();
 
 // Swagger
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiCentroSalud v1");
+    c.RoutePrefix = "swagger";
+});
 
 // Mapear los controladores
 app.MapControllers();

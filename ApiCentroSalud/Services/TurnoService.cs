@@ -1,10 +1,10 @@
 using ApiCentroSalud.Data;
 using ApiCentroSalud.DTOs;
-using Interfaces;
+using ApiCentroSalud.Interfaces;
 using ApiCentroSalud.Models; 
 using Microsoft.EntityFrameworkCore;
 
-namespace Services
+namespace ApiCentroSalud.Services
 {
     public class TurnoService : ITurnoService
     {
@@ -19,9 +19,13 @@ namespace Services
         {
             var turno = new Turno
             {
-                PacienteId = turnoRequest.PacienteId,
-                MedicoId = turnoRequest.MedicoId,
-                Fecha = turnoRequest.Fecha
+                ID_paciente = turnoRequest.PacienteId,
+                ID_medico = turnoRequest.MedicoId,
+                Fecha_y_hora = turnoRequest.Fecha,
+                Fecha_solicitud = DateTime.Now,
+                Estado = "Pendiente",
+                Detalle_motivo = turnoRequest.DetalleMotivo,
+                ID_motivo = turnoRequest.MotivoId 
             };
 
             _context.Turnos.Add(turno);
@@ -29,10 +33,10 @@ namespace Services
 
             return new TurnoDto
             {
-                Id = turno.Id,
-                PacienteId = turno.PacienteId,
-                MedicoId = turno.MedicoId,
-                Fecha = turno.Fecha
+                Id = turno.ID_turno,
+                PacienteId = turno.ID_paciente,
+                MedicoId = turno.ID_medico,
+                Fecha = turno.Fecha_y_hora
             };
         }
 
@@ -45,10 +49,10 @@ namespace Services
 
             return turnos.Select(turno => new TurnoDto
             {
-                Id = turno.Id,
-                PacienteId = turno.PacienteId,
-                MedicoId = turno.MedicoId,
-                Fecha = turno.Fecha
+                Id = turno.ID_turno,
+                PacienteId = turno.ID_paciente,
+                MedicoId = turno.ID_medico,
+                Fecha = turno.Fecha_y_hora
             });
         }
 
@@ -57,17 +61,17 @@ namespace Services
             var turno = await _context.Turnos
                 .Include(t => t.Paciente)
                 .Include(t => t.Medico)
-                .FirstOrDefaultAsync(t => t.Id == id);
+                .FirstOrDefaultAsync(t => t.ID_turno == id);
 
             if (turno == null)
                 return null;
 
             return new TurnoDto
             {
-                Id = turno.Id,
-                PacienteId = turno.PacienteId,
-                MedicoId = turno.MedicoId,
-                Fecha = turno.Fecha
+                Id = turno.ID_turno,
+                PacienteId = turno.ID_paciente,
+                MedicoId = turno.ID_medico,
+                Fecha = turno.Fecha_y_hora
             };
         }
     }

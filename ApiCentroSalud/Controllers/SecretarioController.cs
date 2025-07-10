@@ -1,6 +1,6 @@
 using ApiCentroSalud.Data;
 using ApiCentroSalud.DTOs;
-using Interfaces;
+using ApiCentroSalud.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +25,7 @@ namespace ApiCentroSalud.Controllers
             if (secretario == null)
                 return Unauthorized();
 
-            return Ok(new { Codigo = secretario.Codigo, Estado = secretario.Estado });
+            return Ok(new { Codigo = secretario.Codigo, Contraseña = secretario.Contraseña });
         }
 
         [HttpGet("turnos")]

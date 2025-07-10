@@ -1,10 +1,10 @@
 using ApiCentroSalud.Data;
 using ApiCentroSalud.DTOs;
-using Interfaces;
+using ApiCentroSalud.Interfaces;
 using ApiCentroSalud.Models; 
 using Microsoft.EntityFrameworkCore;
 
-namespace Services
+namespace ApiCentroSalud.Services
 {
     public class SecretariaService : ISecretariaService
     {
@@ -24,10 +24,10 @@ namespace Services
 
             return turnos.Select(turno => new TurnoDto
             {
-                Id = turno.Id,
-                PacienteId = turno.PacienteId,
-                MedicoId = turno.MedicoId,
-                Fecha = turno.Fecha
+                Id = turno.ID_turno,               
+                PacienteId = turno.ID_paciente,    
+                MedicoId = turno.ID_medico,        
+                Fecha = turno.Fecha_y_hora    
             });
         }
 
@@ -42,7 +42,7 @@ namespace Services
             return new SecretarioDto
             {
                 Codigo = secretario.Codigo,
-                Estado = secretario.Estado
+                Contraseña = secretario.Contraseña
             };
         }
     }

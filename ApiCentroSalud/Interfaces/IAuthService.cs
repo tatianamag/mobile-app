@@ -1,4 +1,6 @@
-namespace Interfaces
+using ApiCentroSalud.DTOs;
+
+namespace ApiCentroSalud.Interfaces
 {
     public interface IAuthService
     {

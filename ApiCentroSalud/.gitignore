@@ -40,3 +40,23 @@ _install/
 # .NET SDK / Visual Studio for Mac
 .vscode/
 .idea/
+
+# Carpetas de compilación
+bin/
+obj/
+
+# Archivos pesados o temporales
+*.dll
+*.exe
+*.cache
+*.log
+*.db
+*.zip
+*.rar
+*.nupkg
+
+# Configuraciones locales
+*.user
+*.suo
+.env
+.vscode/
