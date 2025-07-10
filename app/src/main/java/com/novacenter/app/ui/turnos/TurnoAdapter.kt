@@ -3,10 +3,10 @@ package com.novacenter.app.ui.turnos
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.novacenter.app.data.model.Turno
+import com.novacenter.app.data.model.TurnoRequest
 import com.novacenter.app.databinding.ItemTurnoBinding
 
-class TurnoAdapter(private val lista: List<Turno>) :
+class TurnoAdapter(private val lista: List<TurnoRequest>) :
     RecyclerView.Adapter<TurnoAdapter.TurnoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TurnoViewHolder {
@@ -23,7 +23,7 @@ class TurnoAdapter(private val lista: List<Turno>) :
     inner class TurnoViewHolder(private val binding: ItemTurnoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(turno: Turno) {
+        fun bind(turno: TurnoRequest) {
             binding.tvFechaHora.text = turno.fecha_y_hora
             binding.tvMedico.text = "Médico ID: ${turno.id_medico} | Estado: ${turno.estado}"
         }

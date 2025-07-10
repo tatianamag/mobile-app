@@ -26,13 +26,13 @@ interface ApiService {
     suspend fun getTurnos(
         @Query("page") page: Int = 1,
         @Query("pageSize") pageSize: Int = 10
-    ): Response<List<Turno>>
+    ): Response<List<TurnoRequest>>
 
     @GET("api/turnos/{id}")
-    suspend fun getTurnoById(@Path("id") id: Int): Response<Turno>
+    suspend fun getTurnoById(@Path("id") id: Int): Response<TurnoRequest>
 
     @POST("api/turnos")
-    suspend fun createTurno(@Body turno: TurnoDTO): Response<Turno>
+    suspend fun createTurno(@Body turno: TurnoDTO): Response<TurnoRequest>
 
     @PUT("api/turnos/{id}")
     suspend fun updateTurno(@Path("id") id: Int, @Body turno: TurnoDTO): Response<Boolean>

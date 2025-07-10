@@ -39,7 +39,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         // Observar el resultado del login
         lifecycleScope.launchWhenStarted {
             viewModel.usuarioLogueado.collect { response ->
@@ -50,7 +49,6 @@ class LoginActivity : AppCompatActivity() {
 
                     Toast.makeText(this@LoginActivity, "¡Login exitoso!", Toast.LENGTH_SHORT).show()
 
-                    // Ir a la Home (cambiá por tu propia pantalla)
                     val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                     startActivity(intent)
                     finish()

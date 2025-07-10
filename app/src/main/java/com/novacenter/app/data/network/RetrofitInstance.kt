@@ -11,12 +11,12 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitInstance {
 
-    private const val BASE_URL = "http://192.168.1.40:5000/"  // 🔧 corregido (sin /api/)
+    private const val BASE_URL = "http://192.168.1.34:5006/"
 
     // Retrofit con token (para endpoints protegidos)
     fun getRetrofit(context: Context): Retrofit {
         val prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-        val token = prefs.getString("jwt_token", null)
+        val token = prefs.getString("TOKEN", null)
 
         val logging = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -28,18 +28,16 @@ object RetrofitInstance {
             .addInterceptor(logging)
 
         token?.let {
-            clientBuilder.addInterceptor(object : Interceptor {
-                override fun intercept(chain: Interceptor.Chain): Response {
-                    val request = chain.request().newBuilder()
-                        .addHeader("Authorization", "Bearer $it")
-                        .build()
-                    return chain.proceed(request)
-                }
-            })
+            clientBuilder.addInterceptor { chain ->
+                val request = chain.request().newBuilder()
+                    .addHeader("Authorization", "Bearer $it")
+                    .build()
+                chain.proceed(request)
+            }
         }
 
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)  // ✅ sin /api/
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(clientBuilder.build())
             .build()
@@ -48,7 +46,7 @@ object RetrofitInstance {
     // Retrofit sin token (para login)
     val authService: AuthService by lazy {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)  // ✅ también corregido
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(AuthService::class.java)

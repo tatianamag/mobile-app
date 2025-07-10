@@ -3,7 +3,7 @@ package com.novacenter.app.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.novacenter.app.data.model.Turno
+import com.novacenter.app.data.model.TurnoRequest
 import com.novacenter.app.data.model.TurnoDTO
 import com.novacenter.app.data.repository.TurnoRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,8 +13,8 @@ import kotlinx.coroutines.launch
 class TurnoViewModel(application: Application) : AndroidViewModel(application) {
     private val repo = TurnoRepository(application)
 
-    private val _turnos = MutableStateFlow<List<Turno>>(emptyList())
-    val turnos: StateFlow<List<Turno>> = _turnos
+    private val _turnos = MutableStateFlow<List<TurnoRequest>>(emptyList())
+    val turnos: StateFlow<List<TurnoRequest>> = _turnos
 
     fun cargarTurnos() {
         viewModelScope.launch {
