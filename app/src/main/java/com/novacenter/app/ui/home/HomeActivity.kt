@@ -8,14 +8,16 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.novacenter.app.R
 import com.novacenter.app.databinding.ActivityHomeBinding
+import com.novacenter.app.ui.cartilla.CartillaActivity
+import com.novacenter.app.ui.contacto.ContactoActivity
 import com.novacenter.app.ui.salud.MiSaludActivity
 import com.novacenter.app.ui.turnos.MisTurnosActivity
 import com.novacenter.app.ui.perfil.PerfilActivity
+import com.novacenter.app.ui.turnos.SolicitudTurnoActivity
 import com.novacenter.app.ui.usuario.UsuarioAdapter
 import com.novacenter.app.viewmodel.UsuarioViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
@@ -23,8 +25,21 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnSolicitarTurno.setOnClickListener {
+            startActivity(Intent(this, SolicitudTurnoActivity::class.java))
+        }
+
+        binding.btnCartilla.setOnClickListener {
+            startActivity(Intent(this, CartillaActivity::class.java))
+        }
+
+        binding.btnContacto.setOnClickListener {
+            startActivity(Intent(this, ContactoActivity::class.java))
+        }
 
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {

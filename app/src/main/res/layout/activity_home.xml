@@ -83,6 +83,7 @@
                     app:cardElevation="4dp">
 
                     <LinearLayout
+                        android:id="@+id/btnSolicitarTurno"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -109,7 +110,7 @@
 
                 <!-- Botón 2: Cartilla  -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/botonCartilla"
+                    android:id="@+id/btnCartilla"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginBottom="12dp"
@@ -144,7 +145,7 @@
 
                 <!-- Botón 3: Contacto -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/botonContacto"
+                    android:id="@+id/btnContacto"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginBottom="12dp"

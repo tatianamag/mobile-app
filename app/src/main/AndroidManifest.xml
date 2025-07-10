@@ -24,17 +24,19 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-
+        <activity android:name=".ui.login.LoginActivity" />
         <activity
             android:name=".ui.login.ForgotPasswordActivity"
             android:exported="false" />
-
-        <activity android:name=".ui.cartilla.CartillaActivity" />
-        <activity android:name=".ui.login.LoginActivity" />
-        <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.turnos.SolicitudTurnoActivity" />
-        <activity android:name=".ui.turnos.TurnosActivity" />
+        <activity android:name=".ui.cartilla.CartillaActivity" />
+        <activity android:name=".ui.contacto.ContactoActivity" />
+
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.salud.MiSaludActivity" />
+        <activity android:name=".ui.turnos.MisTurnosActivity" />
+        <activity android:name=".ui.perfil.PerfilActivity" />
+
     </application>
 
 </manifest>
