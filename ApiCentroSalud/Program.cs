@@ -13,6 +13,10 @@ using ApiCentroSalud.Helpers;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configurar la conexión a la base de datos MySQL
+var connectionString = builder.Configuration.GetConnectionString("MySQLConnection");
+Console.WriteLine("🔗 Connection String: " + connectionString);
+
+
 builder.Services.AddDbContext<CentroSaludContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("MySQLConnection"), 
     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MySQLConnection"))));
@@ -85,7 +89,20 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// Agregar política CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTodo", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors("PermitirTodo");
 
 // Middleware para autenticación y autorización
 app.UseAuthentication();
