@@ -1495,23 +1495,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USUARIO\\.nuget\\packages\\": {},
+    "C:\\Users\\juani\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TUP\\PROGRAMACIONIII\\Repo-mobile\\mobile-app\\ApiCentroSalud\\ApiCentroSalud.csproj",
+      "projectUniqueName": "C:\\Users\\juani\\OneDrive\\Documentos\\ApiCentroSalud\\ApiCentroSalud\\ApiCentroSalud.csproj",
       "projectName": "ApiCentroSalud",
-      "projectPath": "D:\\TUP\\PROGRAMACIONIII\\Repo-mobile\\mobile-app\\ApiCentroSalud\\ApiCentroSalud.csproj",
-      "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-      "outputPath": "D:\\TUP\\PROGRAMACIONIII\\Repo-mobile\\mobile-app\\ApiCentroSalud\\obj\\",
+      "projectPath": "C:\\Users\\juani\\OneDrive\\Documentos\\ApiCentroSalud\\ApiCentroSalud\\ApiCentroSalud.csproj",
+      "packagesPath": "C:\\Users\\juani\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\juani\\OneDrive\\Documentos\\ApiCentroSalud\\ApiCentroSalud\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\juani\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1520,6 +1520,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

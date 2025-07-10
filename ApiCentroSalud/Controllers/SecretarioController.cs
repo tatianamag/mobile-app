@@ -29,11 +29,12 @@ namespace ApiCentroSalud.Controllers
         }
 
         [HttpGet("turnos")]
-        [Authorize(Roles = "Secretario")]
-        public async Task<IActionResult> ObtenerTurnosSecretario()
-        {
-            var turnos = await _secretarioService.ObtenerTurnosSecretarioAsync();
-            return Ok(turnos);
+[Authorize] // Permite acceso a cualquier usuario autenticado
+public async Task<IActionResult> ObtenerTurnosSecretario()
+{
+    var turnos = await _secretarioService.ObtenerTurnosSecretarioAsync();
+    return Ok(turnos);
+}
         }
     }
-}
+

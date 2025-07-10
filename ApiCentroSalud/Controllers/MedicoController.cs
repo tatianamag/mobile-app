@@ -18,12 +18,13 @@ namespace ApiCentroSalud.Controllers
         }
 
         [HttpGet("listado")]
-        [Authorize(Roles = "Médico, Secretario")]
-        public async Task<IActionResult> ObtenerMedicos()
-        {
-            var medicos = await _medicoService.ObtenerMedicosAsync();
-            return Ok(medicos);
-        }
+[Authorize] // Solo requiere que el usuario esté autenticado
+public async Task<IActionResult> ObtenerMedicos()
+{
+    var medicos = await _medicoService.ObtenerMedicosAsync();
+    return Ok(medicos);
+}
+
 
         [HttpGet("detalle/{id}")]
         [Authorize]

@@ -18,13 +18,12 @@ namespace ApiCentroSalud.Controllers
         }
 
         [HttpGet("listado")]
-        [Authorize(Roles = "Paciente")]
-        public async Task<IActionResult> ObtenerPacientes()
-        {
-            var pacientes = await _pacienteService.ObtenerPacientesAsync();
-            return Ok(pacientes);
-        }
-
+[Authorize] // Permite acceso a cualquier usuario autenticado
+public async Task<IActionResult> ObtenerPacientes()
+{
+    var pacientes = await _pacienteService.ObtenerPacientesAsync();
+    return Ok(pacientes);
+}
         [HttpGet("detalle/{id}")]
         [Authorize]
         public async Task<IActionResult> ObtenerPacienteDetalle(int id)
