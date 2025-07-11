@@ -23,14 +23,33 @@ namespace ApiCentroSalud.Services
                 .ToListAsync();
 
             return turnos.Select(turno => new TurnoDto
-            {
-                Id = turno.ID_turno,               
-                PacienteId = turno.ID_paciente,    
-                MedicoId = turno.ID_medico,        
-                Fecha = turno.Fecha_y_hora    
-            });
+{
+    Id = turno.ID_turno,
+    PacienteId = turno.ID_paciente,
+    MedicoId = turno.ID_medico,
+    Fecha = turno.Fecha_y_hora,
+    Paciente = new PacienteDto
+    {
+        Id = turno.Paciente.ID_persona,
+        Nombre = turno.Paciente.Nombre_completo,
+        Sexo = turno.Paciente.Sexo,
+        Telefono = turno.Paciente.Telefono,
+        DNI = turno.Paciente.DNI,
+        Cobertura = turno.Paciente.Cobertura,
+        // ✏️ Si querés ocultar FechaNacimiento:
+        FechaNacimiento = DateTime.MinValue
+    },
+    Medico = new MedicoDto
+    {
+        Id = turno.Medico.ID_persona,
+        Nombre = turno.Medico.Nombre_completo,
+        Especialidad = _context.EspecialidadMedico
+            .Where(e => e.ID_persona == turno.Medico.ID_persona)
+            .Select(e => e.Especialidad)
+            .FirstOrDefault()
+    }
+});
         }
-
         public SecretarioDto ValidarSecretario(SecretarioLoginRequest loginRequest)
         {
             var secretario = _context.Secretarios
@@ -47,3 +66,4 @@ namespace ApiCentroSalud.Services
         }
     }
 }
+

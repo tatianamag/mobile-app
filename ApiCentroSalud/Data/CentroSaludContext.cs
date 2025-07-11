@@ -58,6 +58,18 @@ modelBuilder.Entity<Turno>()
     .WithMany()
     .HasForeignKey(t => t.ID_motivo)
     .HasPrincipalKey(m => m.ID_motivo);
+
+    modelBuilder.Entity<Turno>()
+    .HasOne(t => t.Paciente)
+    .WithMany()
+    .HasForeignKey(t => t.ID_paciente)
+    .HasPrincipalKey(p => p.ID_persona);
+
+modelBuilder.Entity<Turno>()
+    .HasOne(t => t.Medico)
+    .WithMany()
+    .HasForeignKey(t => t.ID_medico)
+    .HasPrincipalKey(p => p.ID_persona);
             // Clave compuesta
             modelBuilder.Entity<Permisos>().HasKey(p => new { p.Nombre_rol, p.ID_accion });
 
